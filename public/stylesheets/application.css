@@ -1,0 +1,187 @@
+/* ----------------------------------------------------------------------------------------------------------
+
+    LT WebDevelopment (www.lukastomek.cz)
+
+    Autor:             Lukas Tomek (info@lukastomek.cz)
+    VytvoÅ™eno:         20/07/2008
+
+---------------------------------------------------------------------------------------------------------- */
+
+/* -- Basics -- */
+html, body, div, p, ul, ol, li, form, fieldset, h1, h2, h3, h4, h5, h6, address   { margin: 0; padding: 0; list-style: none; }
+
+body		        { font: normal 62.8%/1.3 sans-serif; background: #fff url('../images/bg-head.gif') repeat-x; color: #333333; text-align: center; }
+a			          { color: #666666; }
+a:hover	        { text-decoration: underline !important; }
+a img   	      { border:0; }
+input,
+select,
+textarea        { font-family: lucida, sans-serif; font-size: 1em; vertical-align: middle; }
+input.button,
+select.button,
+textarea.button { background: #fff; padding: 2px 0; border: 1px solid #595959; color: #000 !important; vertical-align: middle; }
+button.button   { margin: 0; padding: 0; height: 18px; border: none; text-decoration: underline; font-weight: bold; color: #00CCFF; cursor: pointer; }
+input.submit    { height: 25px; overflow: visible; padding: 0 15px; background-color: #666666; color: #fff; font-weight: bold; border: none; cursor: pointer; }
+label           { cursor: pointer; padding-right: 5px; line-height: 20px; vertical-align: middle; }
+
+h1	{ font-size: 2em; }
+h2	{ font-size: 1.45em; }
+h3	{ font-size: 1.4em; }
+h4	{ font-size: 1.1em; }
+h5	{ font-size: 1.1em; }
+h6	{ font-size: 1em; }
+
+h1, h2, h3, h4, h5, h6  { color: #3f3f3f; }
+
+table           { border-collapse: collapse; width: 100%; }
+table th        { text-align: left; }
+table td.right  { padding-left: 5px; }
+table th.right  { padding-left: 5px; }
+table td.left   { padding-right: 5px; }
+table th.left   { padding-right: 5px; }
+
+blockquote  { margin: 0; padding: 10px 20px; color: #333333; line-height: 1.6; font-family: Georgia, serif; }
+fieldset    { border: 0 !important; }
+
+/* -- User friendly features --*/
+.hidden { display: none; }
+.noscreen { width: 200px; position: absolute; left: 0; top: -999px; }
+
+/* -- Basics layout -- */
+#view    { text-align: left; }
+#head    { font-size: 1.2em; position: relative; z-index: 10; }
+#content { font-size: 1.2em; z-index: 1; }
+#foot    { font-size: 1.2em; z-index: 1; }
+
+/* -- Main classes -- */
+.fr		     { float: right !important; }
+.fl		     { float: left !important; }
+.clear     { clear: both !important; }
+.right	   { text-align: right !important; }
+.left		   { text-align: left !important; }
+.center	   { text-align: center !important; }
+.last		   { margin-right: 0 !important; margin-bottom: 0 !important; border-bottom: none !important; padding-bottom: 0 !important; background: none; }
+.small	   { font-size: .90em; }
+.big       { font-size: 1.2em; }
+.biggest   { font-size: 2em; }
+.light     { color: #999999 !important; }
+.clearfix  { width: 100%; overflow: hidden; padding-bottom: .6em; }
+.alt       { font-weight: bold; }
+.yellow    { color: #FFFF00 !important; }
+.red       { color: #b7092a !important; }
+.test      { border: 1px black solid; }
+.smile     { vertical-align: middle; margin: 0 2px; }
+.noBrd     { border: none !important; }
+.noBrdL    { border-left: none !important; }
+.noBrdR    { border-right: none !important; }
+.autoWidth { width: auto !important; }
+.inlink    { display: block; padding-left: 14px; background: url('../images/bg-inlink.gif') 0 4px no-repeat; }
+.relative  { position: relative; }
+
+/* -- Graphic overlays -- */
+a.overlaid,
+.overlaid a     { display: block; cursor: pointer; overflow: hidden; }
+.overlaid       { position: relative; width: 100%; height: 100%; }
+.overlaid span  { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+
+/* -- A button -- */
+a.submit    { display: block; padding: 8px 15px; background-color: #666666; color: #fff; font-weight: bold; text-decoration: none; cursor: pointer; margin-left: 10px; }
+
+/* -- Forms layout -- */
+.formBox .lab			      { float: left; width: 19%; text-align: right; padding-right: 1%; }
+.formBox .con			      { float: right; width: 80%; }
+.formBox .clearfix	    {  }
+.formBox .w100          { width: 98%; }
+.formBox .button:focus  { border-color: #000; }
+
+/* -- Basic content constructs -- */
+.holder       { width: 770px; margin: 0 auto; }
+.offsetTop    { margin-top: 1em; }
+.offsetBottom { margin-bottom: 1em; }
+.info         { font-size: .91em !important; margin-bottom: 5px; color: #999999 !important; }
+
+/* -- Icons -- */
+.ico { display: block; float: left; width: 16px; height: 16px; overflow: hidden; line-height: 50px; margin: 0 5px; }
+.ico-edit { background: url('../images/ico/page_edit.png') no-repeat; }
+.ico-delete { background: url('../images/ico/page_delete.png') no-repeat; }
+.ico-look { background: url('../images/ico/look.png') no-repeat; }
+.ico-email { background: url('../images/ico/email.png') no-repeat; }
+
+/* -- Cols layout -- */
+.cols { overflow: hidden; height: 100%; }
+.cols .col1 { float: left; }
+.cols .col2 { float: right; }
+
+.cols50 .col1,
+.cols50 .col2 { width: 48% !important; }
+
+/* -- Layout -- */
+#view         {  }
+#head         { height: 110px; overflow: hidden; }
+#content      {  }
+
+  #head h1 { padding: 17px 30px; }
+  #head .user { width: 200px; padding: 10px 20px; color: #fff; background-color: #666666; position: absolute; top: 30px; right: 0; }
+  #head .user a { color: #fff; }
+
+  #mainMenu { background-color: #666666; overflow: hidden; height: 100%; padding: 0 10px; }
+  #mainMenu li { float: left; }
+  #mainMenu li a { display: block; float: left; color: #fff; padding: 15px 20px; height: 15px; font-weight: bold; }
+  #mainMenu li.active a { text-decoration: none !important; }
+  
+  #mainMenu li.active a { background-color: #fff; margin-top: 10px; padding: 10px 20px 20px; height: 5px; color: #000; }
+
+  #content { width: 730px; padding: 20px; }
+  #content .navi { margin-bottom: 2px; }
+  #content .main { margin-bottom: 10px; }
+  
+  #content .message { padding: 10px 35px; margin-bottom: 20px; font-weight: bold; }
+  #content .success { border: 1px #94d763 solid; background: #c0ff91 url('../images/ico/accept.png') 10px 50% no-repeat; color: #337900; }
+  #content .error { border: 1px #930000 solid; background: #ffaeae url('../images/ico/delete.png') 10px 50% no-repeat; color: #790000; }
+  
+  #content .list { margin-bottom: 20px; }
+  #content .list td,
+  #content .list th { padding: 8px 10px; }
+  #content .list th { background-color: #999999; color: #fff; }
+  #content .list td { border-top: 1px #e7e7e7 solid; }
+  #content .list .even td { background-color: #e7e7e7; }
+  #content .list tr.checked td { background-color: #f2ffe0; }
+  #content .list tr:hover td { background-color: #d7ffa4; }
+  
+  #content .tableNavi { border-top: 2px #999999 solid; padding: 5px 10px; overflow: hidden; height: 100%; clear: both; }
+  #content .tableNavi ul { float: left; }
+  #content .tableNavi li { display: inline; margin-right: 10px; }
+  #content .tableNavi p { float: right; }
+  #content .tableNavi .button { margin: -2px 0 0 10px; }
+  
+  #content .paging { overflow: hidden; height: 100%; clear: both; }
+  #content .paging ul { float: right; }
+  #content .paging ul li { float: left; margin-left: 5px; border: 1px #cccccc solid; vertical-align: middle; }
+  #content .paging ul li a { display: block; float: left; padding: 3px 5px; }
+  #content .paging ul li.active { border: 0; font-size: 1.7em; font-weight: bold; }
+  #content .paging ul li.active a { text-decoration: none !important; padding-top: 0; }
+  
+  #content #loginForm { margin: 50px auto 0; width: 350px;  }
+           #loginForm form { background-color: #e7e7e7; padding: 20px; }
+           #loginForm label { display: block; }
+           #loginForm .submit { float: right; margin-top: 20px; }
+           
+  #content .editForm { padding-top: 10px; padding-right: 300px; }
+           .editForm label { display: block; }
+           .editForm .submit { margin-top: 20px; float: right; }
+           .editForm .in { padding: 20px 20px 0; border: 1px #e7e7e7 solid; background-color: #f3f3f3; }
+           .editForm .clearfix { padding-bottom: 2em; }
+           
+  #content .detail .in { padding-bottom: 20px !important; }
+           .detail table td,
+           .detail table th { padding: 5px 0; }
+           .detail table th {  }
+
+  #content .filterForm { position: relative; z-index: 100; margin: -50px 0 10px 0; padding: 20px 20px 10px; width: 350px; float: right; border: 1px #e7e7e7 solid; background-color: #f3f3f3; overflow: hidden; }
+           .filterForm .col1,
+           .filterForm .col2,
+           .filterForm .col3 { width: 33%; float: left; padding-right: 3%; }
+           .filterForm .col3 { width: 26%; padding: 0; }
+           .filterForm .submit { margin-top: 16px; float: right; }
+           .filterForm .button { width: 110px; }
+           .filterForm .datepicker { background: #fff url('../images/ico/calendar.png') 99% 50% no-repeat; }

@@ -1,0 +1,10 @@
+.DS_Store
+app/flash
+doc/**/*
+log/*.log
+log/*.pid
+tmp/**/*
+config/database.yml
+config/deploy.rb
+nbproject
+public/assets

@@ -1,0 +1,25 @@
+%h2 Editace uživatelů
+%table
+  %tr
+    %th Přihlašovací jméno
+    %th Rodinné jméno
+    %th E-mail
+    %th Město
+    %th Účet vytvořen
+    %th Počet přihlášení
+    %th Poslední přihlášení
+  - @users.each do |user|
+    %tr
+      %td= link_to user.login, edit_admin_user_path(user)
+      %td= user.family_name
+      %td= mail_to user.email, user.email
+      %td= user.city
+      %td= user.created_at
+      %td= user.login_count
+      %td= user.last_login_at
+
+-#= link_to 'Show', user
+-#= link_to 'Edit', edit_user_path(user)
+-#= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+
+          

@@ -1,0 +1,150 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf430
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19160\viewh14720\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\b\fs24 \cf0 Dobra mama - registrace, login, current user
+\b0 \
+\
+Konstanta pro connection string - 
+\b "http://192.168.18.195:3000" 
+\b0 \
+
+\b Registrace\
+\
+1) request
+\b0 \
+_urlRequest = new URLRequest(HOST + "/users/create");\
+_urlRequest.method = URLRequestMethod.POST;\
+\
+
+\b 2) variables
+\b0 \
+variables.login \
+variables.email \
+variables.password\
+variables.password_confirmation\
+\
+password_confirmation je povinna hodnota. \
+\
+login = nickname. jako login muzeme pouzit email (tato varianta se mi vic libi)\
+\
+\
+
+\b 3) response
+\b0 \
+\
+
+\b a) uspesna registrace
+\b0 \
+vraci objekt User v XML.\
+\
+var returnedUser:XML = new XML(_urlLoader.data);\
+trace(returnedUser.login);\
+trace(returnedUser.email);\
+\
+Kompletni XML reprezentace objektu User:\
+\pard\pardeftab720\ql\qnatural
+
+\f1\fs20 \cf0 <?xml version="1.0" encoding="UTF-8"?>\
+<user>\
+  <created-at type="datetime">2009-02-20T15:11:27Z</created-at>\
+  <crypted-password>a1797d0b19093e8b6012bb38626d576c8ed1db7fe8c7cc8789ff7d5543be2d72a4b91e0f533323b0519e6e22a7000f4260b44fccf23583cb17a42af112628db3</crypted-password>\
+  <current-login-at type="datetime">2009-02-22T18:31:34Z</current-login-at>\
+  <current-login-ip>127.0.0.1</current-login-ip>\
+  <email>armen@armenie.cz</email>\
+  <id type="integer">1</id>\
+  <last-login-at type="datetime">2009-02-22T18:20:12Z</last-login-at>\
+  <last-login-ip>127.0.0.1</last-login-ip>\
+  <last-request-at type="datetime">2009-02-22T18:31:37Z</last-request-at>\
+  <login>armen</login>\
+  <login-count type="integer">14</login-count>\
+  <password-salt>0e93dbbe0b044b390c803537c9749520a6cdb2b1f7490cb84e931f28bb9fe67c2c15b1237db86548e8cd507293ba752bc8dc47a365ecebc629cd7679fc57b99e</password-salt>\
+  <perishable-token>uzeDoLGOnb5xewP3Ozss</perishable-token>\
+  <persistence-token>bb4cea95af97e8402bb892359a7776a821bf857012a04a5ef3bc593d89237a4033e53211c06ab3d6ebc5335c03d229cc16c198be0aa7757c52377bcd83cd23ac</persistence-token>\
+  <updated-at type="datetime">2009-02-22T18:31:37Z</updated-at>\
+</user>\
+\
+
+\f0\fs24 Rekni si, ktere polozky z toho budes chtit.\
+last-request-at se automaticky updatuje pri kazdem requestu.\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+\cf0 \
+Po registraci ted dochazi k automatickemu loginu, coz muzu zakazat a muzu udelat napr. aktivaci uctu e-mailem.\
+\
+
+\b b) neuspesna registrace - validace dat
+\b0 \
+validuju:\
+pritomnost loginu\
+delku loginu - min. 4 znaky\
+jedinecnost loginu\
+povolene znaky v loginu - alfanumeric, zavinac\
+pritomnost emailu\
+validitu emailu\
+jedinecnost emailu\
+pritomnost hesla\
+porovnani hesla a confirmation\
+minimani delka hesla 4 znaky\
+\
+Pocitam, ze validovat budes ty u klienta, jak jsi rikal, ze serveru ti navic prijde, jestli login/email uz neexistuje.\
+\
+Pokud dojde k problemu, vracim XML s errors, pokud to tak budes chtit, domluvime se na kodech pro jednotlive typy chyb.\
+\
+Connection pocitam si budes hlidat sam pres nejaky net / IO error objekt.\
+\
+\
+
+\b Login
+\b0   \
+\
+
+\b 1) request\
+
+\b0 _urlRequest = new URLRequest(HOST + "/user_sessions/create");\
+_urlRequest.method = URLRequestMethod.POST;\
+\
+variables.login\
+variables.password\
+ _urlRequest.data = variables;\
+\
+
+\b volitelne
+\b0 \
+variables.remember_me\
+hodnoty string 0, 1\
+pri 1 si pamatuje usera 3 mesice, cookie muzu samozrejme nastavit na jakykoli cas. \
+\
+
+\b 2) response\
+
+\b0 vracim objekt User v XML, stejne jako pri registraci\
+\
+
+\b 3) validation errors
+\b0 \
+viz registrace\
+\
+\
+
+\b Logout\
+
+\b0 _urlRequest = new URLRequest(HOST + "/user_sessions/destroy");\
+_urlRequest.method = URLRequestMethod.POST;\
+Rails maji REST architekturu takze pro destuktivni akce pouzivaji DELETE, co jsem se dival tak URLRequestMethod toto nepodporuje. Nahrazuji tedy POST.\
+Podobne pro update akce se pouziva PUT, muzeme taky nahradit POST.\
+\
+po logoutu vracim string "logout"\
+\
+
+\b Current user
+\b0 \
+_urlRequest = new URLRequest(HOST + "/user_sessions/get_current_user");\
+_urlRequest.method = URLRequestMethod.GET;\
+\
+Pokud existuje, vracim objekt User v XML (viz login a registrace)\
+Pokud neexistuje, vracim string "null"\
+\
+\
+}

@@ -1,0 +1,16 @@
+.form
+  - form_for @user_session, :url => admin_user_session_path, :html => { :class => 'formBox' } do |f|
+    = f.error_messages
+    %fieldset
+      %h2 Přihlášení
+      .clearfix
+        = f.label :login, 'Přihlašovací jméno:'
+        = f.text_field :login, :class => 'button'
+      .clearfix
+        = f.label :password, 'Heslo:'
+        = f.password_field :password, :class => 'button'
+      .clearfix
+        .con.radio
+          = f.check_box :remember_me
+          = f.label :remember_me, 'Zapamatovat'  
+      = f.submit "Přihlásit", :class => 'submit'

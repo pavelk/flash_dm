@@ -1,0 +1,25 @@
+!!! Strict
+%html{ html_attrs('cs') }
+  %head
+    %meta{ 'http-equiv' => 'content-type', :content => 'text/html', :charset => 'utf-8' }
+    %meta{ 'http-equiv' => 'content-language', :content => 'cs' }
+    %meta{ :name => 'author', :content => 'Euro RSCG 4D Prague' }
+    %meta{ :name => 'copyright', :content => '2008 Euro RSCG 4D' }
+    %meta{ :name => 'description', :content => '...' }
+    %meta{ :name => 'keywords', :content => 'eurorscg, eurorscg4d' } 
+    %title Dobra mama
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'swfobject.js'
+    :javascript
+      var flashvars = {};
+      flashvars.testing = "reg";
+      var params = {};
+      params.menu = "false";
+      params.scale = "noscale";
+      params.wmode = "opaque";
+      params.allowscriptaccess = "sameDomain";
+      var attributes = {};
+      swfobject.embedSWF("main.swf", "flashDiv", "700", "400", "9.0.0", "/images/expressInstall.swf", flashvars, params, attributes);
+  %body
+    #wrapper
+      = yield
