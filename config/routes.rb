@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :notes
+
   map.resources :ratings
 
   map.resources :travels, :member => { :add_photo => :post }
