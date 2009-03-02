@@ -5,7 +5,7 @@
 		<i name="Mámina historie" typ="history" y="100">
 			<![CDATA[Dobroty od <b>Dobré Mámy</b> vznikají v Benešově a to z toho nejkvalitnějšího mléka kupovaného výhradně od českých dodavatelů. Loni se <b>Dobré Mámě</b> podařilo vyrobit více než 63 000 000 kelímků jogurtu. Kdybychom je postavili za sebe, vznikla by řada dlouhá přes 5 000 km!<br><br>Dnes vám <b>Dobrá Máma</b> nabízí deset různých příchutí jogurtu a tři druhy jogurtových nápojů.<br><br>Od roku 2006, kdy byly na trh uvedeny první výrobky této značky, urazila <b>Dobrá Máma</b> dlouhou cestu a několikrát změnila kabát.<br><br>Naposledy v roce 2008, kdy pro Vás připravila jogurty a jogurtové výrobky s vylepšenou recepturou, v novém designu kelímku, s obsahem živých kultur a bez konzervantů.]]>
 		</i>
-		<i name="Jak se Dobrá Máma vyrábí" typ="making_of" />
+		<i name="Jak se Dobrá Máma vyrábí" typ="making_of" scroll="1" />
 		<i name="Výrobky Dobrá Máma" typ="products">
 			<![CDATA[Dobrá Máma pro vás připravila 10 různých příchutí jogurtů a navrch 3 osvěžující příchutě jogurtových nápojů.<br><br>Všechny výrobky Dobrá Máma obsahují živé jogurtové kultury a jsou bez přídavku konzervačních látek.<br><br><a href="event:ProductDetail,1">→ Dobrá Máma Pro celou rodinu</a><br><a href="event:ProductDetail,2">→ Dobrá Máma Pro labužníky</a><br><a href="event:ProductDetail,3">→ Dobrá Máma „Jogurtový koktejl“</a><br><a href="event:PageOther,nutricni-hodnoty">→ Nutriční hodnoty</a><br><a href="event:PageOther,zive-kultury">→ Živé jogurtové kultury, bez konzervantů</a><br>]]>
 			<sub title="Dobrá Máma Pro celou rodinu" id="01">
@@ -29,20 +29,17 @@
 		<i name="Recepty" typ="recipes" />
 		<i name="Nákupní seznam" typ="shoppinglist" />
 		-->		
-		<i name="Hry" typ="games" flv="coz_takhle_hru_600x450_700kb_128mono.swf" />
+		<i name="Zahrajte si pexeso" typ="games" flv="coz_takhle_hru_600x450_700kb_128mono.swf" />
 	</i>
-	<!-- <i name="Galerie kreseb" typ="gallery" /> -->
-	<i name="Ke stažení">
-		<i name="Naše reklamy" typ="tvspots">
-			<spot flv="flv/skejtak.flv" thumb="flv/thumb/skejtak.jpg" title="Skejťák" />
-			<spot flv="flv/straciatella.flv" thumb="flv/thumb/straciatella.jpg" title="Stracciatella" />
-			<spot flv="flv/cokokousky.flv" thumb="flv/thumb/cokokousky.jpg" title="Čoko s čokokousky" />
-			<spot flv="flv/piskotova.flv" thumb="flv/thumb/piskotova.jpg" title="Piškotová" />
-			<spot flv="flv/jahodova.flv" thumb="flv/thumb/jahodova.jpg" title="Velké kousky jahod" />
-		</i>
+	<i name="Naše reklamy" typ="tvspots">
+		<spot flv="flv/skejtak.flv" thumb="flv/thumb/skejtak.jpg" title="Skejťák" />
+		<spot flv="flv/straciatella.flv" thumb="flv/thumb/straciatella.jpg" title="Stracciatella" />
+		<spot flv="flv/cokokousky.flv" thumb="flv/thumb/cokokousky.jpg" title="Čoko s čokokousky" />
+		<spot flv="flv/piskotova.flv" thumb="flv/thumb/piskotova.jpg" title="Piškotová" />
+		<spot flv="flv/jahodova.flv" thumb="flv/thumb/jahodova.jpg" title="Velké kousky jahod" />
 	</i>	
 	<i name="Napište nám" typ="contact" flv="chcete_nam_napsat_600x450_700kb_128mono.swf" />
 	<i name="Pro obchodníky" typ="bussiness">
-		<![CDATA[Aktuální katalog s výrobky a logistickými daty o výrobcích Dobrá Máma najdete <a href="katalog-produtku.pdf">zde</a>.]]>
+		<![CDATA[Aktuální katalog s výrobky a logistickými daty o výrobcích Dobrá Máma najdete <a href="/katalog_web_Dobramama.pdf">zde</a>.]]>
 	</i>	
 </data>
