@@ -8,14 +8,14 @@
 		<i name="Jak se Dobrá Máma vyrábí" typ="making_of" />
 		<i name="Výrobky Dobrá Máma" typ="products">
 			<![CDATA[Dobrá Máma pro vás připravila 10 různých příchutí jogurtů a navrch 3 osvěžující příchutě jogurtových nápojů.<br><br>Všechny výrobky Dobrá Máma obsahují živé jogurtové kultury a jsou bez přídavku konzervačních látek.<br><br><a href="event:ProductDetail,1">→ Dobrá Máma Pro celou rodinu</a><br><a href="event:ProductDetail,2">→ Dobrá Máma Pro labužníky</a><br><a href="event:ProductDetail,3">→ Dobrá Máma „Jogurtový koktejl“</a><br><a href="event:PageOther,nutricni-hodnoty">→ Nutriční hodnoty</a><br><a href="event:PageOther,zive-kultury">→ Živé jogurtové kultury, bez konzervantů</a><br>]]>
-			<sub title="Dobrá Máma Pro celou rodinu">
+			<sub title="Dobrá Máma Pro celou rodinu" id="01">
 				<![CDATA[Světle modrá řada Dobrá Máma nabízí 6 lahodných příchutí. Obzvláště menší děti a s nimi všichni, kdo nemají rádi kousky ovoce v jogurtu, si jistě pochutnají na variantách rozmixované jahody, rozmixované meruňky, rozmixované lesní ovoce a banánová. Pro mlsouny je tu také Dobrá Máma čokoládová a vanilková.]]>
 			</sub> 
-			<sub title="Dobrá Máma Pro labužníky">
-				<![CDATA[Dali byste si něco zdravého ale přitom sladkého a krémového?  Poznejte husté a krémové jogurty  „Pro labužníky“ od Dobré Mámy!<br>Milovníci ovoce si vychutnají  <span>Dobrou Mámu s velkými kousky jahod</span>.<br>Příznivci dezertních příchutí pak jistě ocení <span>Dobrou Mámu Stracciatella</span>, <span>Čoko s čokokousky</span> a nyní i jedinečnou novinku <span>Dobrá Máma Piškotová</span>!<br>I jogurty z řady Dobrá Máma „Pro labužníky“ obsahují živé jogurtové kultury a jsou bez přídavku konzervačních látek.]]>
+			<sub title="Dobrá Máma Pro labužníky" id="02">
+				<![CDATA[Dali byste si něco zdravého ale přitom sladkého a krémového?  Poznejte husté a krémové jogurty  „Pro labužníky“ od Dobré Mámy!<br>Milovníci ovoce si vychutnají  <span class="yellow">Dobrou Mámu s velkými kousky jahod</span>.<br>Příznivci dezertních příchutí pak jistě ocení <span class="yellow">Dobrou Mámu Stracciatella</span>, <span class="yellow">Čoko s čokokousky</span> a nyní i jedinečnou novinku <span class="yellow">Dobrá Máma Piškotová</span>!<br>I jogurty z řady Dobrá Máma „Pro labužníky“ obsahují živé jogurtové kultury a jsou bez přídavku konzervačních látek.]]>
 			</sub> 
-			<sub title="Dobrá Máma „Jogurtový koktejl“">
-				<![CDATA[Máte rádi mléčné koktejly? Zaručeně si oblíbíte ty jogurtové od Dobré Mámy. Jsou lahodné a báječně osvěží! Navíc vám praktické uzavíratelné obaly umožní vzít si je kamkoli s sebou.<br>Stejně jako jogurty Dobrá Máma jsou bez přídavku konzervačních látek a s obsahem živých jogurtových kultur.<br>K dispozici máte tři oblíbené koktejlové variace: <span>jahoda & banán</span>, <span>malina & borůvka</span> nebo <span>višeň & vanilka</span>.]]>
+			<sub title="Dobrá Máma „Jogurtový koktejl“" id="03" w="300">
+				<![CDATA[Máte rádi mléčné koktejly?<br><br>Zaručeně si oblíbíte ty jogurtové od Dobré Mámy.<br><br>Jsou lahodné a báječně osvěží! Navíc vám praktické<br>uzavíratelné obaly umožní vzít si je kamkoli s sebou.<br><br>Stejně jako jogurty Dobrá Máma jsou bez přídavku konzervačních látek a s obsahem živých jogurtových kultur.<br><br>K dispozici máte tři oblíbené koktejlové variace:<br><span class="yellow">jahoda & banán</span>, <span class="yellow">malina & borůvka</span> nebo <span class="yellow">višeň & vanilka</span>.]]>
 			</sub>
 		</i>
 		<i name="Nutriční hodnoty" typ="nutricni-hodnoty" />
