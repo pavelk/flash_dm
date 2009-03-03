@@ -16,3 +16,14 @@ Rails::Initializer.run do |config|
   config.action_controller.session_store = :active_record_store
 
 end
+=begin
+ActionMailer::Base.smtp_settings = {
+   :tls => true,
+   :address => "smtp.gmail.com",
+   :port => "587",
+   :domain => "YOURDOMAIN",
+   :authentication => :plain,
+   :user_name => "hanatoma001",
+   :password => "hana12345"
+ }
+=end 

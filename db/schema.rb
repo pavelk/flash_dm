@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090302134602) do
+ActiveRecord::Schema.define(:version => 20090303091316) do
+
+  create_table "friends", :force => true do |t|
+    t.string   "recipient_mail"
+    t.string   "sender_mail"
+    t.string   "sender_name"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notes", :force => true do |t|
     t.string   "first_name"
