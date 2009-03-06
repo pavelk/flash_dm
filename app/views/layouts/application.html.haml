@@ -23,9 +23,9 @@
     :javascript
       function openWindow(url, name, width, height, x, y) 
       {
-        var params = “height=” + height + “,width=” + width + “,toolbar=1,scrollbars=1,location=1,statusbar=1,menubar=1,resizable=1,top=” + x + “,left=” + y;
+        var params = "height=" + height + ",width=" + width + ",toolbar=1,scrollbars=1,location=1,statusbar=1,menubar=1,resizable=1,top=" + x + ",left=" + y;
         var popup = window.open(url, name, params);
-        return popup != null && typeof(popup) != “undefined”;
+        return popup != null && typeof(popup) != "undefined";
       }
   %body
     = yield
