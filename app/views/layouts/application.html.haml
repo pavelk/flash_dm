@@ -17,9 +17,16 @@
       params.menu = "false";
       params.scale = "noscale";
       params.wmode = "opaque";
-      params.allowscriptaccess = "sameDomain";
+      params.allowscriptaccess = "always";
       var attributes = {};
       swfobject.embedSWF("DobraMama_01.swf", "flashDiv", "100%", "768", "9.0.24", "/images/expressInstall.swf", flashvars, params, attributes);
+    :javascript
+      function openWindow(url, name, width, height, x, y) 
+      {
+        var params = “height=” + height + “,width=” + width + “,toolbar=1,scrollbars=1,location=1,statusbar=1,menubar=1,resizable=1,top=” + x + “,left=” + y;
+        var popup = window.open(url, name, params);
+        return popup != null && typeof(popup) != “undefined”;
+      }
   %body
     = yield
     :javascript

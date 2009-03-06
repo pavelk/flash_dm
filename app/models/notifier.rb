@@ -4,7 +4,8 @@ class Notifier < ActionMailer::Base
   def write_us(note)
     subject "Napiste nam"
     from "Dobra mama <noreply@dobra-mama.cz>"
-    recipients [ "danone@lion.cz", "zuzana.smejkalova@danone.com", "diana.macovei@eurorscg4d.cz" ]
+    #recipients [ "danone@lion.cz", "zuzana.smejkalova@danone.com", "diana.macovei@eurorscg4d.cz" ]
+    recipients [ "danone@lion.cz", "diana.macovei@gmail.com" ]
     sent_on Time.now
     body[:first_name] = note.first_name
     body[:surname] = note.surname
