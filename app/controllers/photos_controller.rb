@@ -1,5 +1,6 @@
 class TravelsController < ApplicationController
   
+=begin
   def add_photo
     @travel = Travel.find(params[:id])
     @photo = Photo.new(params[:photo])
@@ -9,5 +10,6 @@ class TravelsController < ApplicationController
       format.xml  { render :xml => @travel.to_xml(:include => [:user,:photos]), :status => :created, :location => @travel }
     end
   end
+=end
   
 end  

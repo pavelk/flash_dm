@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090303091316) do
+ActiveRecord::Schema.define(:version => 20090311124608) do
 
   create_table "friends", :force => true do |t|
     t.string   "recipient_mail"
@@ -43,6 +43,13 @@ ActiveRecord::Schema.define(:version => 20090303091316) do
 
   add_index "photos", ["attachable_id", "attachable_type"], :name => "index_photos_on_attachable_id_and_attachable_type"
 
+  create_table "products", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :default => "", :null => false
     t.text     "data"
@@ -53,6 +60,13 @@ ActiveRecord::Schema.define(:version => 20090303091316) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "shoppings", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "travels", :force => true do |t|
     t.integer  "user_id"
     t.string   "title"
@@ -62,6 +76,10 @@ ActiveRecord::Schema.define(:version => 20090303091316) do
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "location"
+    t.boolean  "rules_confirm"
+    t.boolean  "approved"
+    t.boolean  "active"
   end
 
   add_index "travels", ["created_at"], :name => "index_travels_on_created_at"

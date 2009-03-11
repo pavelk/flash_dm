@@ -9,6 +9,15 @@ class TravelsController < ApplicationController
       format.xml  { render :xml => @travels }
     end
   end
+  
+  def index_flash
+    @travels = Travel.all
+
+    respond_to do |format|
+      #format.html # index.html.erb
+      format.xml  { render :xml => @travels.to_xml(:include => [:user,:photos]) }
+    end
+  end
 
   # GET /travels/1
   # GET /travels/1.xml
@@ -57,14 +66,21 @@ class TravelsController < ApplicationController
   
   def create_flash
     travel = { :user_id => current_user.id,
-               :title => params[:title], 
-               :description => params[:description], 
+               #:user_id => 1,  
+               :title => params[:title],
+               :location => params[:location],
+               :approved => 1,
+               :active => 1,
+               :rules_confirm => 1,
+               :description => params[:description],
                :duration => params[:duration], 
                :difficulty => params[:difficulty] }
     @travel = Travel.new(travel)
     
     respond_to do |format|
       if @travel.save
+        @photo = Photo.new(params[:photo])
+        @travel.photos << @photo
         format.xml  { render :xml => @travel.to_xml(:include => :user, :only => [ :title, :description, :duration, :difficulty, :login ]), :status => :created, :location => @travel }
       else
         format.xml  { render :xml => @travel.errors }
