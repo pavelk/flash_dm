@@ -37,7 +37,10 @@ class UsersController < ApplicationController
              :password => params[:password], 
              :password_confirmation => params[:password_confirmation],
              :family_name => params[:family_name],
-             :city => params[:city]
+             :city => params[:city],
+             :first_name => params[:first_name],
+             :last_name => params[:last_name],
+             :street => params[:street]
               }
     @user = User.new(user)
     
