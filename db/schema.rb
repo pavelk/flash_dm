@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090311124608) do
+ActiveRecord::Schema.define(:version => 20090313100356) do
 
   create_table "friends", :force => true do |t|
     t.string   "recipient_mail"
@@ -18,6 +18,21 @@ ActiveRecord::Schema.define(:version => 20090311124608) do
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "galleries", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.string   "author_name"
+    t.string   "author_age"
+    t.boolean  "user_confirm",       :default => true,  :null => false
+    t.boolean  "approved",           :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "notes", :force => true do |t|
@@ -50,6 +65,16 @@ ActiveRecord::Schema.define(:version => 20090311124608) do
     t.datetime "updated_at"
   end
 
+  create_table "ratings", :force => true do |t|
+    t.integer "rater_id"
+    t.integer "rated_id"
+    t.string  "rated_type"
+    t.integer "rating",     :limit => 10, :precision => 10, :scale => 0
+  end
+
+  add_index "ratings", ["rated_type", "rated_id"], :name => "index_ratings_on_rated_type_and_rated_id"
+  add_index "ratings", ["rater_id"], :name => "index_ratings_on_rater_id"
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :default => "", :null => false
     t.text     "data"
@@ -80,6 +105,10 @@ ActiveRecord::Schema.define(:version => 20090311124608) do
     t.boolean  "rules_confirm"
     t.boolean  "approved"
     t.boolean  "active"
+    t.integer  "rating_count"
+    t.integer  "rating_total",  :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "rating_avg",                  :precision => 10, :scale => 2
+    t.integer  "hits",                                                       :default => 0, :null => false
   end
 
   add_index "travels", ["created_at"], :name => "index_travels_on_created_at"
@@ -103,6 +132,9 @@ ActiveRecord::Schema.define(:version => 20090311124608) do
     t.string   "current_login_ip"
     t.string   "family_name"
     t.string   "city"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

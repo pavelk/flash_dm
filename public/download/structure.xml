@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data server="http://parlament.dev/data.php">
+	<i name="Soutěž" typ="competition" flv="ceny_300x450_25f_700k_96mono.swf" />
+	<i name="O Dobré Mámě">
+		<i name="Mámina historie" typ="history" y="100">
+			<![CDATA[Dobroty od <b>Dobré Mámy</b> vznikají v Benešově a to z toho nejkvalitnějšího mléka kupovaného výhradně od českých dodavatelů. Loni se <b>Dobré Mámě</b> podařilo vyrobit více než 63 000 000 kelímků jogurtu. Kdybychom je postavili za sebe, vznikla by řada dlouhá přes 5 000 km!<br><br>Dnes vám <b>Dobrá Máma</b> nabízí deset různých příchutí jogurtu a tři druhy jogurtových nápojů.<br><br>Od roku 2006, kdy byly na trh uvedeny první výrobky této značky, urazila <b>Dobrá Máma</b> dlouhou cestu a několikrát změnila kabát.<br><br>Naposledy v roce 2008, kdy pro Vás připravila jogurty a jogurtové výrobky s vylepšenou recepturou, v novém designu kelímku, s obsahem živých kultur a bez konzervantů.]]>
+		</i>
+		<i name="Jak se Dobrá Máma vyrábí" typ="making_of" scroll="1" />
+		<i name="Výrobky Dobrá Máma" typ="products">
+			<![CDATA[Dobrá Máma pro vás připravila 10 různých příchutí jogurtů a navrch 3 osvěžující příchutě jogurtových nápojů.<br><br>Všechny výrobky Dobrá Máma obsahují živé jogurtové kultury a jsou bez přídavku konzervačních látek.<br><br><a href="event:ProductDetail,1">→ Dobrá Máma Pro celou rodinu</a><br><a href="event:ProductDetail,2">→ Dobrá Máma Pro labužníky</a><br><a href="event:ProductDetail,3">→ Dobrá Máma „Jogurtový koktejl“</a><br><a href="event:PageOther,nutricni-hodnoty">→ Nutriční hodnoty</a><br><a href="event:PageOther,zive-kultury">→ Živé jogurtové kultury, bez konzervantů</a><br>]]>			
+			<sub title="Dobrá Máma Pro celou rodinu" id="01" w="450">
+				<![CDATA[Světle modrá řada Dobrá Máma nabízí 6 lahodných příchutí. Obzvláště menší děti a s nimi všichni, kdo nemají rádi kousky ovoce v jogurtu, si jistě pochutnají na variantách rozmixované <span class="yellow">jahody</span>, rozmixované <span class="yellow">meruňky</span>, rozmixované <span class="yellow">lesní ovoce</span> a <span class="yellow">banánová</span>. Pro mlsouny je tu také <span class="yellow">Dobrá Máma čokoládová a vanilková</span>.]]>
+			</sub> 
+			<sub title="Dobrá Máma Pro labužníky" id="02" w="450">
+				<![CDATA[Dali byste si něco zdravého ale přitom sladkého a krémového?  Poznejte husté a krémové jogurty  „Pro labužníky“ od Dobré Mámy!<br>Milovníci ovoce si vychutnají <span class="yellow">Dobrou Mámu s velkými kousky jahod</span>.<br>Příznivci dezertních příchutí pak jistě ocení <span class="yellow">Dobrou Mámu Stracciatella</span>, <span class="yellow">Čoko s čokokousky</span> a nyní i jedinečnou novinku <span class="yellow">Dobrá Máma Piškotová</span>!<br>I jogurty z řady Dobrá Máma „Pro labužníky“ obsahují živé jogurtové kultury a jsou bez přídavku konzervačních látek.]]>
+			</sub> 
+			<sub title="Dobrá Máma „Jogurtový koktejl“" id="03" w="300">
+				<![CDATA[Máte rádi mléčné koktejly?<br><br>Zaručeně si oblíbíte ty jogurtové od Dobré Mámy.<br><br>Jsou lahodné a báječně osvěží! Navíc vám praktické<br>uzavíratelné obaly umožní vzít si je kamkoli s sebou.<br><br>Stejně jako jogurty Dobrá Máma jsou bez přídavku konzervačních látek a s obsahem živých jogurtových kultur.<br><br>K dispozici máte tři oblíbené koktejlové variace:<br><span class="yellow">jahoda & banán</span>, <span class="yellow">malina & borůvka</span> nebo <span class="yellow">višeň & vanilka</span>.]]>
+			</sub>
+		</i>
+		<i name="Nutriční hodnoty" typ="nutricni-hodnoty">
+			<tooltip id="1" headline="Bílkoviny"><![CDATA[Růst a obnovu tkání, funkci imunologického systému, obnovu až pěti miliónů buněk za vteřinu – to vše v našem těle zajišťují bílkoviny, základní stavební složka všech buněk organismu. Mezi významné zdroje bílkovin patří především maso, ryby, vejce, mléčné výrobky, luštěniny a obiloviny.]]></tooltip>
+			<tooltip id="2" headline="Sacharidy"><![CDATA[Mezi sacharidy patří škroby a cukry. Jsou významným zdrojem energie pro náš organismus. Nespotřebované sacharidy se ale proměňují na tuky, které se ukládají v těle, proto by se měly přijímat s mírou. Cukry se vyskytují v ovoci, zelenině a všech slazených jídlech a nápojích.<br>Všechny příchutě jogurtů a jogurtových výrobků Dobrá Máma obsahují maximálně 7% doporučené denní dávky sacharidů.  ]]></tooltip> 
+			<tooltip id="3" headline="Tuky"><![CDATA[Jsou pro tělo dalším nezbytným zdrojem energie. Umožňují tělu vstřebat vitaminy A, D, E a K, které jsou rozpustné právě v tucích, a podílejí se na syntéze důležitých hormonů. Nadměrné množství tuků v organismu má ovšem negativní vliv na zdraví i celkovou kondici. Jogurtové výrobky Dobrá Máma z řady „Pro celou rodinu“ obsahují maximálně 4% doporučené denní dávky tuků.]]></tooltip> 
+			<tooltip id="4" headline="Vápník"><![CDATA[Výrobky Dobrá Máma jsou také důležitým zdrojem vápníku. Vápník je nezbytný pro udržování silných a zdravých kostí. Lidské tělo si jej nedokáže samo vyrobit a je proto nezbytné zajistit dostatečný přísun vápníku z potravy. Kromě mléka a mléčných výrobků jsou  zdroji vápníku také ryby, žloutek, oříšky, luštěniny, nebo třeba neloupaná rýže.]]></tooltip> 			
+		</i>
+		<i name="Živé kultury, bez konzervantů" typ="zive-kultury" w="430" x="230" c="006f45">
+			<![CDATA[Co znamená logo rodiny a označení živé kultury bez konzervantů, které najdete na obale výrobků <b>Dobrá Máma</b>?<br><br><h2>Živé jogurtové kultury</h2>Jogurty <b>Dobrá Máma</b> obsahují zdraví prospěšné kultury, které jim dodávají jejich typické vlastnosti. Odborně se nazývají Lactobacillus bulgaricus a Streptococus thermophilus.<br><br><h2>Bez konzervantů</h2>Do výrobků <b>Dobrá Máma</b> nejsou přidávány konzervační látky.<br><br>Konzervanty zabraňují změnám vlastností potravin v důsledku působení mikroorganismů. Tím prodlužují trvanlivost potravin.<br><br>Výrobky <b>Dobrá Máma</b> se v Benešovském závodě společnosti <b>Danone</b> vyrábějí za dodržení nejpřísnějších hygienických pravidel a standardů kvality. Díky biologické konzervaci kyselinou mléčnou mají dlouhou trvanlivost i bez dodatečného přídávání konzervačních látek.<br><br>Díky tomu, že je <b>Dobrá Máma</b> s živými kulturami a bez konzervantů, ji můžete své rodině kupovat každý den a víte, že jí dáváte to nejlepší!]]>
+		</i>				
+	</i>
+	<i name="Bavte se s námi!">
+		<!--<i name="Tipy na výlety" typ="triptip">
+			<headline>S rodinou na výlet</headline>
+			<text><![CDATA[Hledáte tipy, co podniknout o víkendu nebo prázdninách? V České republice je spousta krásných míst jak pro výlety pěšky, tak i na kole. Stačí si ráno přivstat, nachystat s sebou dostatek jogurtů Dobrá Máma na doplnění energie, dostatek tekutin, třeba Máminy jogurtové drinky, dobrou obuv, pláštěnku proti dešti, v létě pokrývku hlavy, nezapomenout mapu a hurá na výlet!<br><br>Když si s sebou přibalíte navíc foťák, papír a tužku na poznámky a o svém výletě nám napíšete, může se právě Váš výlet dostat na titulní stránku našeho webu. Záleží jen na Vás, zda svým výletem zaujmete ostatní a pošlou Vám své hlasy. A i když se na Vás štěstí neusměje, může Vás těšit, že se ve Vašich stopách třeba vydají další rodiny!]]></text>
+			<inputs>
+							
+			</inputs>
+		</i>
+		 
+		<i name="Nákupní seznam" typ="shoppinglist" />
+		-->		
+		<i name="Zahrajte si pexeso" typ="games" flv="coz_takhle_hru_600x450_700kb_128mono.swf" />
+	</i>
+	<i name="Galerie obrázků" typ="gallery">
+		<upload>
+			<inp name="Jméno obrázku:" field="image_name" />
+			<inp name="Jméno autora:" field="author_name" />
+			<inp name="Věk autora:" field="author_age" />
+			<inp name="Obrázek:" field="img_upload" />
+		</upload>
+	</i>
+	<i name="Ke stažení" typ="download">
+		<i name="Naše reklamy" typ="tvspots">
+			<spot flv="flv/soutez.flv" thumb="flv/thumb/soutez.jpg" title="Vyhrajte rekonstrukci" />
+			<spot flv="flv/skejtak.flv" thumb="flv/thumb/skejtak.jpg" title="Skejťák" />
+			<spot flv="flv/straciatella.flv" thumb="flv/thumb/straciatella.jpg" title="Stracciatella" />
+			<spot flv="flv/cokokousky.flv" thumb="flv/thumb/cokokousky.jpg" title="Čoko s čokokousky" />
+			<spot flv="flv/piskotova.flv" thumb="flv/thumb/piskotova.jpg" title="Piškotová" />
+			<spot flv="flv/jahodova.flv" thumb="flv/thumb/jahodova.jpg" title="Velké kousky jahod" />
+		</i>
+	</i>	
+	<i name="Napište nám" typ="contact" flv="chcete_nam_napsat_600x450_700kb_128mono.swf" />
+	<i name="Pro obchodníky" typ="bussiness">
+		<![CDATA[Aktuální katalog s výrobky a logistickými daty o výrobcích Dobrá Máma najdete <a href="/katalog-produktu.pdf" target="_blank">zde</a>.]]>
+	</i>	
+	<videos>
+		<i flv="svacina_600x450_25f_700k_96mono.swf" />
+		<i flv="telefon_600x450_25f_700k_96mono.swf" />
+		<i flv="v_lavici_600x450_25f_700k_96mono.swf" />
+		<i flv="vareni_600x450_25f_700k_96mono.swf" />		
+		<i flv="joga_600x450_25f_700k_96mono.swf" />
+		<i flv="ukol_600x450_25f_700k_96mono.swf" />
+		<i flv="segro_pomoz_600x450_25f_700k_96mono.swf" />
+		<i flv="pexeso_600x450_25f_700k_96mono.swf" />
+	</videos>
+</data>

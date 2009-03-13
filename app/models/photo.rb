@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
   
   belongs_to :attachable, :polymorphic => true
   
-  has_attached_file :photo, :styles => { :travel => "130x160#" },
+  has_attached_file :photo, :styles => { :travel_big => "220x220>", :travel_thumb => "x45>", :travel_list => "x90>" },
                     :url  => "/assets/photos/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/photos/:id/:style/:basename.:extension"
                   

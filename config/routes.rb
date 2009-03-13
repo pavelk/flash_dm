@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :galleries, :collection => { :index_flash => :get  }
+
   map.resources :shoppings
 
   map.resources :products
@@ -9,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :ratings
 
-  map.resources :travels, :member => { :add_photo => :post, :create_flash => :post }
+  map.resources :travels, :member => { :add_photo => :post, :create_flash => :post, :show_flash => :get, :add_rating => :post }, :collection => { :index_flash => :get  }
   
   map.root :controller => 'home'
   map.resources :users

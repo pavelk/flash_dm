@@ -15,10 +15,10 @@ class TravelsController < ApplicationController
 
     respond_to do |format|
       #format.html # index.html.erb
-      format.xml  { render :xml => @travels.to_xml(:include => [:user,:photos]) }
+      format.xml  { render :xml => @travels.to_xml(:include => [:user,:photos], :skip_types => false, :only => [ :id, :first_name, :last_name, :photo_file_name, :title, :description, :location, :duration, :difficulty, :created_at, :hits, :rating_count, :rating_total, :rating_avg ]) }
     end
   end
-
+  
   # GET /travels/1
   # GET /travels/1.xml
   def show
@@ -30,9 +30,13 @@ class TravelsController < ApplicationController
                     :only => [ :title, :description, :duration, :difficulty, :login, :email,:photo_file_name ]) }
     end
   end
+  
+  def show_flash
+    @travel = Travel.find(params[:id])
+    @travel.hit!
+    render :text => @travel.to_xml, :status => 200
+  end  
 
-  # GET /travels/new
-  # GET /travels/new.xml
   def new
     @travel = Travel.new
 
@@ -42,13 +46,11 @@ class TravelsController < ApplicationController
     end
   end
 
-  # GET /travels/1/edit
   def edit
     @travel = Travel.find(params[:id])
   end
 
-  # POST /travels
-  # POST /travels.xml
+
   def create
     @travel = Travel.new(params[:travel])
 
@@ -65,7 +67,8 @@ class TravelsController < ApplicationController
   end
   
   def create_flash
-    travel = { :user_id => current_user.id,
+    travel = { #:user_id => current_user.id,
+               :user_id => params[:user_id],
                #:user_id => 1,  
                :title => params[:title],
                :location => params[:location],
@@ -77,15 +80,34 @@ class TravelsController < ApplicationController
                :difficulty => params[:difficulty] }
     @travel = Travel.new(travel)
     
+    if @travel.save
+      @photo = Photo.new(params[:photo])
+      @travel.photos << @photo
+      render :text => @travel.to_xml, :status => 200
+    end
+    #render
+=begin    
     respond_to do |format|
       if @travel.save
         @photo = Photo.new(params[:photo])
         @travel.photos << @photo
-        format.xml  { render :xml => @travel.to_xml(:include => :user, :only => [ :title, :description, :duration, :difficulty, :login ]), :status => :created, :location => @travel }
+        #format.html { redirect_to(root_path(:page => @travel.to_xml)) }
+        format.html { render }
+        #format.xml  { render :xml => @travel.to_xml, :status => :created, :location => @travel }
       else
         format.xml  { render :xml => @travel.errors }
       end
     end
+=end    
+  end
+  
+  def add_rating
+    @travel = Travel.find(params[:id])
+    u = User.find(1)
+    @travel.rate(params[:rate_value].to_i, u)
+    
+    
+    render :text => @travel.to_xml, :status => 200
   end
   
   def add_photo
@@ -93,10 +115,11 @@ class TravelsController < ApplicationController
     @photo = Photo.new(params[:photo])
     @travel.photos << @photo
   
-    respond_to do |format|
+    render :text => @travel.to_xml, :status => 200
+    #respond_to do |format|
       #format.html { redirect_to(@travel) }
-      format.xml  { render :xml => @travel.to_xml(:include => [:user,:photos]), :status => :created, :location => @travel }
-    end
+      #format.xml  { render :xml => @travel.to_xml(:include => [:user,:photos]), :status => :created, :location => @travel }
+    #end
   end 
 
   # PUT /travels/1

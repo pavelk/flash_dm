@@ -1,13 +1,12 @@
 class Travel < ActiveRecord::Base
+  acts_as_rated
   
   belongs_to :user
   has_many :photos, :as => :attachable, :dependent => :destroy
-  #before_create :add_user_to_travel
-  
-  private
-  
-    def add_user_to_travel
-      #self.user_id = current_user.id
-    end  
+
+  def hit!
+    self.class.increment_counter :hits, id
+  end
+ 
   
 end
