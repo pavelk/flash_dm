@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090313100356) do
+ActiveRecord::Schema.define(:version => 20090316090735) do
 
   create_table "friends", :force => true do |t|
     t.string   "recipient_mail"
@@ -22,17 +22,30 @@ ActiveRecord::Schema.define(:version => 20090313100356) do
 
   create_table "galleries", :force => true do |t|
     t.integer  "user_id"
-    t.string   "title"
+    t.string   "city"
     t.string   "author_name"
     t.string   "author_age"
-    t.boolean  "user_confirm",       :default => true,  :null => false
-    t.boolean  "approved",           :default => false, :null => false
+    t.boolean  "user_confirm",                                                    :default => true,  :null => false
+    t.boolean  "approved",                                                        :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.integer  "hits",                                                            :default => 0,     :null => false
+    t.integer  "rating_count",                                                    :default => 0,     :null => false
+    t.integer  "rating_total",       :limit => 10, :precision => 10, :scale => 0, :default => 0,     :null => false
+    t.decimal  "rating_avg",                       :precision => 10, :scale => 2, :default => 0.0,   :null => false
+  end
+
+  create_table "news", :force => true do |t|
+    t.string   "title"
+    t.text     "perex"
+    t.text     "description"
+    t.integer  "hits",        :default => 0, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "notes", :force => true do |t|
@@ -66,14 +79,12 @@ ActiveRecord::Schema.define(:version => 20090313100356) do
   end
 
   create_table "ratings", :force => true do |t|
-    t.integer "rater_id"
     t.integer "rated_id"
     t.string  "rated_type"
     t.integer "rating",     :limit => 10, :precision => 10, :scale => 0
   end
 
   add_index "ratings", ["rated_type", "rated_id"], :name => "index_ratings_on_rated_type_and_rated_id"
-  add_index "ratings", ["rater_id"], :name => "index_ratings_on_rater_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :default => "", :null => false
@@ -105,10 +116,10 @@ ActiveRecord::Schema.define(:version => 20090313100356) do
     t.boolean  "rules_confirm"
     t.boolean  "approved"
     t.boolean  "active"
-    t.integer  "rating_count"
-    t.integer  "rating_total",  :limit => 10, :precision => 10, :scale => 0
-    t.decimal  "rating_avg",                  :precision => 10, :scale => 2
-    t.integer  "hits",                                                       :default => 0, :null => false
+    t.integer  "hits",                                                       :default => 0,   :null => false
+    t.integer  "rating_count",                                               :default => 0,   :null => false
+    t.integer  "rating_total",  :limit => 10, :precision => 10, :scale => 0, :default => 0,   :null => false
+    t.decimal  "rating_avg",                  :precision => 10, :scale => 2, :default => 0.0, :null => false
   end
 
   add_index "travels", ["created_at"], :name => "index_travels_on_created_at"

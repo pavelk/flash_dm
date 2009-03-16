@@ -302,9 +302,9 @@ module ActiveRecord #:nodoc:
         # To be used during migration, but can also be used in other places.
         def add_ratings_columns
           if !self.column_names.include? 'rating_count'
-            self.connection.add_column table_name, :rating_count, :integer
-            self.connection.add_column table_name, :rating_total, :decimal
-            self.connection.add_column table_name, :rating_avg,   :decimal, :precision => 10, :scale => 2
+            self.connection.add_column table_name, :rating_count, :integer, :null => false, :default => 0
+            self.connection.add_column table_name, :rating_total, :decimal, :null => false, :default => 0
+            self.connection.add_column table_name, :rating_avg,   :decimal, :precision => 10, :scale => 2, :null => false, :default => 0
             self.reset_column_information
           end
         end

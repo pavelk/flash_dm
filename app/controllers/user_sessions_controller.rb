@@ -14,7 +14,7 @@ class UserSessionsController < ApplicationController
   
   def get_current_user
     if(current_user != nil)
-      render :xml => current_user.to_xml
+      render :xml => current_user.to_xml(:only => [ :id, :login, :email, :first_name, :last_name, :city ])
     else
       render :text => 'null'
       #render(:layout => false)

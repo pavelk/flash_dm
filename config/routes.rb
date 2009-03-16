@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :galleries, :collection => { :index_flash => :get  }
+  map.resources :news
+
+  map.resources :galleries, :collection => { :index_flash => :get  }, :member => { :create_flash => :post, :show_flash => :get, :add_rating => :post }
 
   map.resources :shoppings
 
@@ -22,5 +24,6 @@ ActionController::Routing::Routes.draw do |map|
     admin.root :controller => "user_sessions", :action => "new"
     admin.resource :user_session
     admin.resources :users
+    admin.resources :travels
   end
 end

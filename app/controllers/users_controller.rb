@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       if @user.save
-        format.xml  { render :xml => @user.to_xml(:only => [ :login, :email ]), :status => :created, :location => @user }
+        format.xml  { render :xml => @user.to_xml(:only => [ :login, :email, :first_name, :last_name ]), :status => :created, :location => @user }
       else
         format.xml  { render :xml => @user.errors }
       end

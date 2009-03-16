@@ -67,16 +67,29 @@ class GalleriesController < ApplicationController
     #@gallery = Gallery.new(params[:gallery])
 
     gallery = { :user_id => params[:user_id],
-                :title => params[:title],
+                :city => params[:city],
                 :author_name => params[:author_name],
                 :author_age => params[:author_age],
-                :photo => params[:photo]
+                :photo => params[:gallery][:photo]
               }
     @gallery = Gallery.new(gallery)
 
     if @gallery.save
       render :text => @gallery.to_xml, :status => 200
     end
+  end
+  
+  def add_rating
+    @gallery = Gallery.find(params[:id])
+    @gallery.rate(params[:rate_value].to_i)
+        
+    render :text => @gallery.to_xml, :status => 200
+  end
+  
+  def show_flash
+    @gallery = Gallery.find(params[:id])
+    @gallery.hit!
+    render :text => @gallery.to_xml, :status => 200
   end
 
 

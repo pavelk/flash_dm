@@ -63,7 +63,7 @@ class NotesController < ApplicationController
     respond_to do |format|
       if @note.save
         @note.deliver_write_us
-        format.xml  { render :xml => @note.to_xml(:status => :created, :location => @note ) }
+        format.xml  { render :xml => @note.to_xml(:only => [ :first_name, :surname, :email, :message ]), :status => :created, :location => @note  }
       else
         format.xml  { render :xml => @note.errors }
       end

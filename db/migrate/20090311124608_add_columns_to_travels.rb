@@ -1,8 +1,8 @@
 class AddColumnsToTravels < ActiveRecord::Migration
   def self.up
     add_column :travels, :location, :text
-    add_column :travels, :rules_confirm, :boolean
-    add_column :travels, :approved, :boolean
+    add_column :travels, :rules_confirm, :boolean, :null => false, :default => true
+    add_column :travels, :approved, :boolean, :null => false, :default => false
     add_column :travels, :active, :boolean
   end
 

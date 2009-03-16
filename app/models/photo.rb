@@ -6,7 +6,16 @@ class Photo < ActiveRecord::Base
                     :url  => "/assets/photos/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/photos/:id/:style/:basename.:extension"
                   
-  validates_attachment_size :photo, :less_than => 3.megabytes
+  validates_attachment_size :photo, :less_than => 10.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'application/octet-stream']
+  
+=begin  
+  before_create :randomize_file_name
+  
+  def randomize_file_name 
+    extension = self.photo_file_name.scan(/\.\w+$/).to_s.downcase 
+    self.photo_file_name = "#{self.id}#{extension}" 
+  end
+=end
   
 end

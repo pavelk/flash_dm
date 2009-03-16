@@ -1,6 +1,7 @@
 class TravelsController < ApplicationController
-  # GET /travels
-  # GET /travels.xml
+
+  layout 'preview'
+
   def index
     @travels = Travel.find(:all)
 
@@ -11,7 +12,7 @@ class TravelsController < ApplicationController
   end
   
   def index_flash
-    @travels = Travel.all
+    @travels = Travel.all(:order => 'rating_avg DESC, created_at DESC')
 
     respond_to do |format|
       #format.html # index.html.erb
@@ -67,9 +68,7 @@ class TravelsController < ApplicationController
   end
   
   def create_flash
-    travel = { #:user_id => current_user.id,
-               :user_id => params[:user_id],
-               #:user_id => 1,  
+    travel = { :user_id => params[:user_id],
                :title => params[:title],
                :location => params[:location],
                :approved => 1,
@@ -103,10 +102,8 @@ class TravelsController < ApplicationController
   
   def add_rating
     @travel = Travel.find(params[:id])
-    u = User.find(1)
-    @travel.rate(params[:rate_value].to_i, u)
-    
-    
+    @travel.rate(params[:rate_value].to_i)
+        
     render :text => @travel.to_xml, :status => 200
   end
   
@@ -116,14 +113,9 @@ class TravelsController < ApplicationController
     @travel.photos << @photo
   
     render :text => @travel.to_xml, :status => 200
-    #respond_to do |format|
-      #format.html { redirect_to(@travel) }
-      #format.xml  { render :xml => @travel.to_xml(:include => [:user,:photos]), :status => :created, :location => @travel }
-    #end
   end 
 
-  # PUT /travels/1
-  # PUT /travels/1.xml
+
   def update
     @travel = Travel.find(params[:id])
 
@@ -139,8 +131,6 @@ class TravelsController < ApplicationController
     end
   end
 
-  # DELETE /travels/1
-  # DELETE /travels/1.xml
   def destroy
     @travel = Travel.find(params[:id])
     @travel.destroy
