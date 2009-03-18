@@ -20,6 +20,13 @@ class Notifier < ActionMailer::Base
     sent_on Time.now
     body[:sender_name] = friend.sender_name
     body[:message] = friend.message
+  end
+  
+  def registration_mail(user)
+    subject "Vítejte na www.dobra-mama.cz"
+    from "Dobra mama <noreply@dobra-mama.cz>"
+    recipients user.email
+    sent_on Time.now
   end  
 
 end

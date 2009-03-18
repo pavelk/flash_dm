@@ -5,9 +5,9 @@
     %meta{ 'http-equiv' => 'content-language', :content => 'cs' }
     %meta{ :name => 'author', :content => 'Euro RSCG 4D Prague' }
     %meta{ :name => 'copyright', :content => '2008 Euro RSCG 4D' }
-    %meta{ :name => 'description', :content => 'Dobrá máma Danone web' }
-    %meta{ :name => 'keywords', :content => 'Dobrá máma Danone jogurt' } 
-    %title Dobrá máma
+    %meta{ :name => 'description', :content => 'Dobrá Máma pro vás připravila 10 různých příchutí jogurtů a navrch 3 osvěžující příchutě jogurtových nápojů. Všechny výrobky Dobrá Máma obsahují živé jogurtové kultury a jsou bez přídavku konzervačních látek.' }
+    %meta{ :name => 'keywords', :content => 'Dobrá Máma, Danone, Jogurt, Joghurt, Zdraví, Rodina, Svačina, Živé Kultury, Jogurtovy Napoj, Jogurtové výrobky, Bez konzervantů, Ovocný jogurt, Krémovy Jogurt, Sladký jogurt, Energetická hodnota, Konzervační látky, Nízkotučný jogurt, Mléčné výrobky, Soutěž, soutez, zabava, hry	, Rozmixované jahody, Rozmixované meruňky, Rozmixované lesní ovoce, Banánová, Čokoládová, Vanilková, Piškotová, Velké kousky jahod, Stracciatella, Čoko s čokokousky, Mléčné koktejly, jahoda & banán, malina & borůvka, višeň & vanilka' } 
+    %title Dobrá Máma - Rozumí celé rodině
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'swfobject.js'
     :javascript
@@ -20,7 +20,7 @@
       params.allowscriptaccess = "always";
       var attributes = {};
       //swfobject.embedSWF("main.swf", "flashDiv", "700", "400", "9.0.24", "/images/expressInstall.swf", flashvars, params, attributes);
-      swfobject.embedSWF("DobraMama.swf", "flashDiv", "100%", "768", "9.0.24", "/images/expressInstall.swf", flashvars, params, attributes);
+      swfobject.embedSWF("DobraMama_01.swf", "flashDiv", "100%", "768", "9.0.24", "/images/expressInstall.swf", flashvars, params, attributes);
     :javascript
       function openWindow(url, name, width, height, x, y) 
       {
@@ -30,10 +30,18 @@
       }
   %body
     = yield
-    :javascript
+    -#:javascript
+      -#var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      -#document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      -#try {
+        -#var pageTracker = _gat._getTracker("UA-3142182-38");
+        -#pageTracker._trackPageview();
+      -#} catch(err) {}
+    %script{:type => "text/javascript"} 
       var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));     
       try {
-        var pageTracker = _gat._getTracker("UA-3142182-38");
-        pageTracker._trackPageview();
+      var pageTracker = _gat._getTracker("UA-3142182-38");
+      pageTracker._trackPageview();
       } catch(err) {}
+      
