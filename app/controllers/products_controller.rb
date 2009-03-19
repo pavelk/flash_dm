@@ -13,11 +13,12 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.xml
   def show
-    @product = Product.find(params[:id])
+    @products = Product.all(:conditions => ["user_id = ? AND user_id = ?", params[:id], 1])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @product }
+      #format.html # show.html.erb
+      #format.xml  { render :xml => @product }
+      format.xml  { render :xml => @products.to_xml(:only => [ :id, :title] ) }
     end
   end
 
