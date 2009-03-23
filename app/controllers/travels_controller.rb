@@ -36,6 +36,9 @@ class TravelsController < ApplicationController
     @travel = Travel.find(params[:id])
     @travel.hit!
     render :text => @travel.to_xml, :status => 200
+     #respond_to do |format|
+        #format.xml  { render :xml => @travel.to_xml()}
+      #end
   end  
 
   def new

@@ -16,6 +16,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :travels, :member => { :add_photo => :post, :create_flash => :post, :show_flash => :get, :add_rating => :post }, :collection => { :index_flash => :get  }
   
   map.root :controller => 'home'
+  map.connect 'most_rated_gallery', :controller => 'home', :action => 'most_rated_gallery'
+  map.connect 'most_rated_trip', :controller => 'home', :action => 'most_rated_trip'
   map.resources :users
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
