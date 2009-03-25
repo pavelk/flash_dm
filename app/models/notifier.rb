@@ -27,6 +27,15 @@ class Notifier < ActionMailer::Base
     from "Dobra mama <noreply@dobra-mama.cz>"
     recipients user.email
     sent_on Time.now
-  end  
+  end
+  
+  def shopping_list(shopping)
+    subject "Nákupní lístek z www.dobra-mama.cz"
+    from "Dobra mama <noreply@dobra-mama.cz>"
+    recipients shopping.mail
+    sent_on Time.now
+    body[:msg] = shopping.msg
+    body[:user] = shopping.user
+  end    
 
 end

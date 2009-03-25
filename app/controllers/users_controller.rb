@@ -30,6 +30,16 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
+  
+  def get_code
+    @code = Code.find_by_code(params[:code])
+    
+    if(@code != nil)
+      render :text => @code.to_xml, :status => 200
+    else
+      render :text => 'no', :status => 200
+    end
+  end  
 
   def create
     user = { :login => params[:login], 

@@ -6,7 +6,7 @@ class UserSessionsController < ApplicationController
                      :remember_me => '1' }
    @user_session = UserSession.new(user_session)
    if @user_session.save
-     render :xml => current_user.to_xml(:only => [ :id, :login, :email, :first_name, :last_name, :city ])
+     render :xml => current_user.to_xml(:only => [ :id, :login, :email, :first_name, :last_name, :city, :code ])
    else
      render :xml => @user_session.errors.to_xml
    end
@@ -14,7 +14,7 @@ class UserSessionsController < ApplicationController
   
   def get_current_user
     if(current_user != nil)
-      render :xml => current_user.to_xml(:only => [ :id, :login, :email, :first_name, :last_name, :city ])
+      render :xml => current_user.to_xml(:only => [ :id, :login, :email, :first_name, :last_name, :city, :code ])
     else
       render :text => 'null'
       #render(:layout => false)

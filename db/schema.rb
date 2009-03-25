@@ -9,7 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090316090735) do
+ActiveRecord::Schema.define(:version => 20090325141047) do
+
+  create_table "baskets", :force => true do |t|
+    t.integer "shopping_id"
+    t.integer "product_id"
+    t.string  "quantity"
+  end
+
+  add_index "baskets", ["product_id"], :name => "index_baskets_on_product_id"
+  add_index "baskets", ["shopping_id"], :name => "index_baskets_on_shopping_id"
+
+  create_table "codes", :force => true do |t|
+    t.string "email"
+    t.string "code"
+  end
+
+  add_index "codes", ["code"], :name => "index_codes_on_code"
 
   create_table "friends", :force => true do |t|
     t.string   "recipient_mail"
@@ -101,6 +117,8 @@ ActiveRecord::Schema.define(:version => 20090316090735) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "msg"
+    t.string   "mail"
   end
 
   create_table "travels", :force => true do |t|
@@ -130,12 +148,12 @@ ActiveRecord::Schema.define(:version => 20090316090735) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "login"
-    t.string   "crypted_password",  :default => "", :null => false
-    t.string   "password_salt",     :default => "", :null => false
-    t.string   "persistence_token", :default => "", :null => false
-    t.string   "perishable_token",  :default => "", :null => false
-    t.string   "email",             :default => "", :null => false
-    t.integer  "login_count",       :default => 0,  :null => false
+    t.string   "crypted_password",  :default => "",    :null => false
+    t.string   "password_salt",     :default => "",    :null => false
+    t.string   "persistence_token", :default => "",    :null => false
+    t.string   "perishable_token",  :default => "",    :null => false
+    t.string   "email",             :default => "",    :null => false
+    t.integer  "login_count",       :default => 0,     :null => false
     t.datetime "last_request_at"
     t.datetime "last_login_at"
     t.datetime "current_login_at"
@@ -146,6 +164,7 @@ ActiveRecord::Schema.define(:version => 20090316090735) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "street"
+    t.boolean  "code",              :default => false, :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

@@ -20,12 +20,14 @@ Rails::Initializer.run do |config|
 
 end
 
+=begin
 ActionMailer::Base.smtp_settings = {
    :tls => true,
    :address => "smtp.gmail.com",
    :port => "587",
    :domain => "YOURDOMAIN",
    :authentication => :plain,
-   :user_name => "hanatoma001",
-   :password => "hana12345"
+   :user_name => "pavel.krusek",
+   :password => "s4557410"
  }
+=end 
