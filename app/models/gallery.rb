@@ -3,7 +3,7 @@ class Gallery < ActiveRecord::Base
   
   belongs_to :user
   
-  has_attached_file :photo, :styles => { :fullsize => "350x350>", :medium => "280x280>", :thumb => "125x125#", :fridge => "68x51#" },
+  has_attached_file :photo, :styles => { :fullsize => "350x350>", :medium => "280x280>", :thumb => "125x100#", :fridge => "68x51#" },
                     :url  => "/assets/galleries/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/assets/galleries/:id/:style/:basename.:extension"
                   
