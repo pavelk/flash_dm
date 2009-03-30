@@ -16,6 +16,10 @@ class HomeController < ApplicationController
         format.xml  { render :xml => @photo.to_xml( :only => [ :id, :photo_file_name ]) }
     end
     
-  end    
+  end
+  
+  def popup
+    render :layout => false 
+  end      
   
 end
