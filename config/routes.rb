@@ -18,7 +18,7 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'home'
   map.connect 'most_rated_gallery', :controller => 'home', :action => 'most_rated_gallery'
   map.connect 'most_rated_trip', :controller => 'home', :action => 'most_rated_trip'
-  map.resources :users, :member => { :update_status }
+  map.resources :users, :member => { :update_status => :post }
   map.connect 'get_code', :controller => 'users', :action => 'get_code'  
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
