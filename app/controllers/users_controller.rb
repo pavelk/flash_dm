@@ -45,9 +45,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     
     @user.code = true
-    @user.save!  
+    if @user.save 
   
-    render :text => 'ok', :status => 200
+    respond_to do |format|
+      #format.html # index.html.erb
+      format.xml  { render :xml => @user }
+    end
+  end
   end
       
   def create

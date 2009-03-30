@@ -18,7 +18,11 @@ class HomeController < ApplicationController
     
   end
   
-  def popup
+  def popup_1
+    render :layout => false 
+  end
+  
+  def popup_2
     render :layout => false 
   end      
   
