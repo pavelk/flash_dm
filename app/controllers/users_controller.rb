@@ -39,8 +39,17 @@ class UsersController < ApplicationController
     else
       render :text => 'no', :status => 200
     end
-  end  
-
+  end
+  
+  def update_status
+    @user = User.find(params[:id])
+    
+    @user.code = true
+    @user.save!  
+  
+    render :text => 'ok', :status => 200
+  end
+      
   def create
     user = { :login => params[:login], 
              :email => params[:email], 
