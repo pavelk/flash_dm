@@ -11,7 +11,7 @@ class GalleriesController < ApplicationController
   end
 
   def index_flash
-    @galleries = Gallery.all(:order => 'rating_avg DESC, created_at DESC')
+    @galleries = Gallery.all(:order => 'rating_total DESC, created_at DESC', :conditions => 'approved = 1')
 
     respond_to do |format|
       #format.html # index.html.erb

@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_filter :check_authentication
   
   layout 'admin'
   

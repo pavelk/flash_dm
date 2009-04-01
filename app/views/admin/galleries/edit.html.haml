@@ -1,0 +1,7 @@
+%h2.page 
+  Úprava položky galerie obrázků - uživatel 
+  = @gallery.user.full_name
+= error_messages_for :gallery 
+- form_for @gallery, :url => {:action => "update", :id => @gallery} do |f|
+  = render :partial => "form", :locals => { :f => f }
+  %p= submit_tag "Upravit"

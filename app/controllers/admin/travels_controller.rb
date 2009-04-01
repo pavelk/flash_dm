@@ -1,4 +1,5 @@
 class Admin::TravelsController < ApplicationController  
+  before_filter :check_authentication
 
   layout 'admin'
   
@@ -12,12 +13,13 @@ class Admin::TravelsController < ApplicationController
   end
   
 
-  def show
+  def remove_photo
     @travel = Travel.find(params[:id])
-
+    @photo = Photo.find(params[:photo])
+    @photo.destroy
+    
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @travel }
+      format.html { redirect_to(:controller => 'travels', :action => 'photos', :id => @travel) }
     end
   end
   
@@ -25,15 +27,25 @@ class Admin::TravelsController < ApplicationController
   def edit
     @travel = Travel.find(params[:id])
   end
-
-
-  def destroy
+  
+  def update
     @travel = Travel.find(params[:id])
-    @travel.destroy
 
     respond_to do |format|
-      format.html { redirect_to(travels_url) }
-      format.xml  { head :ok }
+      if @travel.update_attributes(params[:travel])
+        flash[:notice] = 'Výlet byl upraven.'
+        format.html { redirect_to(admin_travels_path) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @travel.errors, :status => :unprocessable_entity }
+      end
     end
   end
+  
+  def photos
+    @travel = Travel.find(params[:id])
+    @photos = @travel.photos
+  end
+
 end

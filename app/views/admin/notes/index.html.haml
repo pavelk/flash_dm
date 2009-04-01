@@ -1,0 +1,15 @@
+%h2.page Napište nám
+%table
+  %tr
+    %th Jméno
+    %th Příjmení
+    %th Email
+    %th Zpráva
+    %th Odesláno
+  - @notes.each do |note|
+    %tr{:class => cycle('odd', 'even')} 
+      %td= note.first_name
+      %td= note.surname
+      %td= note.email
+      %td= note.message
+      %td= note.created_at

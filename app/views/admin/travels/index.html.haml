@@ -1,22 +1,14 @@
-%h2 Editace výletů
+%h2.page Výlety
 %table
   %tr
-    %th Název
+    %th Uživatel
     %th Popis
-    %th Příjmení
-    %th E-mail
-    %th Město
+    %th Upravit
+    %th Obrázky
   - @travels.each do |travel|
     %tr
-      %td= link_to travel.title, edit_admin_travel_path(travel)
-      %td= user.first_name
-      %td= user.last_name
-      %td= mail_to user.email, user.email
-      %td= user.city
-      -#%td= user.created_at
-      -#%td= user.login_count
-      -#%td= user.last_login_at
-
--#= link_to 'Show', user
--#= link_to 'Edit', edit_user_path(user)
--#= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+      %td= travel.user.full_name
+      -#%td= link_to travel.title, edit_admin_travel_path(travel)
+      %td= travel.title
+      %td= link_to 'Upravit', :controller => 'travels', :action => 'edit', :id => travel
+      %td= link_to 'Obrázky', :controller => 'travels', :action => 'photos', :id => travel

@@ -1,0 +1,9 @@
+%h2.page 
+  Obrázky pro výlet "
+  = @travel.title
+  "
+- @photos.each do |row|
+  %p
+    = image_tag(row.photo.url(:travel_list))
+    %br
+    = link_to 'Odstranit', {:controller => 'travels', :action => 'remove_photo', :id => @travel, :photo => row.id}, {:confirm => 'Jste si jistí?', :method => :delete}

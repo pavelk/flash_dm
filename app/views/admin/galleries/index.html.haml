@@ -1,0 +1,17 @@
+%h2.page Galerie obrázků
+%table
+  %tr
+    %th Uživatel
+    %th Jméno autora
+    %th Město
+    %th Obrázek
+    %th Úprava
+  - @galleries.each do |gallery|
+    %tr{:class => cycle('odd', 'even')} 
+      %td= gallery.user.full_name
+      %td= gallery.author_name
+      %td= gallery.city
+      %td= image_tag gallery.photo.url(:fridge)
+      -#%td= link_to 'Upravit', edit_admin_gallery_path(gallery)
+      %td= link_to 'Upravit', :controller => 'galleries', :action => 'edit', :id => gallery
+      

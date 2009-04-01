@@ -1,0 +1,19 @@
+%p  
+  = f.label :author_name, '<strong>Jméno autora:</strong>'
+  %br
+  = f.text_field :author_name
+%p  
+  = f.label :city, '<strong>Město:</strong>'
+  %br
+  = f.text_field :city  
+%p  
+  = f.label :author_age, '<strong>Věk:</strong>'
+  %br
+  = f.text_field :author_age
+%p
+  = image_tag @gallery.photo.url(:medium)
+%p  
+  = f.label :approved, '<strong>Schválit:</strong>'
+  %br
+  = f.check_box :approved  
+  

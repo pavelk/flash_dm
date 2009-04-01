@@ -8,12 +8,15 @@
     %meta{ :name => 'description', :content => '...' }
     %meta{ :name => 'keywords', :content => 'eurorscg, eurorscg4d' } 
     %title Dobrá máma | Administrace
-    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'admin'
   %body
     #view
-      #content.holder
-        %h1 Dobrá máma | Administrace
-        - flash.each do |key, msg|
-          %div{ :class => key }= msg
-        = render :partial => 'layouts/admin_menu'
-        = yield
+      %h1 Dobrá máma | Administrace
+      - if current_user
+        = link_to "Odhlásit se", admin_logout_path, :class => 'right'
+      - flash.each do |key, msg|
+        %div{ :class => key }= msg
+      %p.clear  
+      = render :partial => 'layouts/admin_menu'
+      %p.clear
+      = yield

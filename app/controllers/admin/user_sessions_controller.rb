@@ -1,4 +1,5 @@
 class Admin::UserSessionsController < ApplicationController
+  #before_filter :check_authentication, :except => [:new, :create]
   
   layout 'admin'
   
@@ -10,7 +11,7 @@ class Admin::UserSessionsController < ApplicationController
   def create
    @user_session = UserSession.new(params[:user_session])
    if @user_session.save
-     flash[:notice] = "Login successful!"
+     flash[:notice] = "Úspěšné přihlášení!"
      #redirect_back_or_default home_url
      redirect_to(admin_users_path)
    else
@@ -20,8 +21,8 @@ class Admin::UserSessionsController < ApplicationController
 
   def destroy
    current_user_session.destroy
-   flash[:notice] = "Logout successful!"
-   redirect_back_or_default new_user_session_url
+   flash[:notice] = "Úspěšné odhlášení!"
+   redirect_to(new_admin_user_session_path)
   end
 
 end

@@ -1,7 +1,5 @@
 class TravelsController < ApplicationController
 
-  layout 'preview'
-
   def index
     @travels = Travel.find(:all)
 
@@ -12,7 +10,7 @@ class TravelsController < ApplicationController
   end
   
   def index_flash
-    @travels = Travel.all(:order => 'rating_avg DESC, created_at DESC')
+    @travels = Travel.all(:order => 'rating_total DESC, created_at DESC', :conditions => 'approved = 1')
 
     respond_to do |format|
       #format.html # index.html.erb

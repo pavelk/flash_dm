@@ -1,0 +1,7 @@
+%h2.page 
+  Úprava výletu - uživatel 
+  = @travel.user.full_name
+= error_messages_for :travel 
+- form_for @travel, :url => {:action => "update", :id => @travel} do |f|
+  = render :partial => "form", :locals => { :f => f }
+  %p= submit_tag "Upravit"

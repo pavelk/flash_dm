@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090325141047) do
+ActiveRecord::Schema.define(:version => 20090401132209) do
 
   create_table "baskets", :force => true do |t|
     t.integer "shopping_id"
@@ -41,18 +41,18 @@ ActiveRecord::Schema.define(:version => 20090325141047) do
     t.string   "city"
     t.string   "author_name"
     t.string   "author_age"
-    t.boolean  "user_confirm",                                                    :default => true,  :null => false
-    t.boolean  "approved",                                                        :default => false, :null => false
+    t.boolean  "user_confirm",                                                    :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "hits",                                                            :default => 0,     :null => false
-    t.integer  "rating_count",                                                    :default => 0,     :null => false
-    t.integer  "rating_total",       :limit => 10, :precision => 10, :scale => 0, :default => 0,     :null => false
-    t.decimal  "rating_avg",                       :precision => 10, :scale => 2, :default => 0.0,   :null => false
+    t.integer  "hits",                                                            :default => 0,    :null => false
+    t.integer  "rating_count",                                                    :default => 0,    :null => false
+    t.integer  "rating_total",       :limit => 10, :precision => 10, :scale => 0, :default => 0,    :null => false
+    t.decimal  "rating_avg",                       :precision => 10, :scale => 2, :default => 0.0,  :null => false
+    t.boolean  "approved",                                                        :default => true, :null => false
   end
 
   create_table "news", :force => true do |t|

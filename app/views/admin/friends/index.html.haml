@@ -1,0 +1,15 @@
+%h2.page Poslat známému
+%table
+  %tr
+    %th Odesílatel
+    %th Odesílatel - email
+    %th Příjemce - email
+    %th Zpráva
+    %th Odesláno
+  - @friends.each do |friend|
+    %tr{:class => cycle('odd', 'even')} 
+      %td= friend.sender_name
+      %td= friend.sender_mail
+      %td= friend.recipient_mail
+      %td= friend.message
+      %td= friend.created_at
