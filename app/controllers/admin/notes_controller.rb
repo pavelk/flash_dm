@@ -4,7 +4,10 @@ class Admin::NotesController < ApplicationController
   layout 'admin'
   
   def index
-    @notes = Note.all
+    if(params[:pagingSelector] == nil)
+      params[:pagingSelector] = 50
+    end
+    @notes = Note.all.paginate :page => params[:page], :per_page => params[:pagingSelector]
 
     respond_to do |format|
       format.html

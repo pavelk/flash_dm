@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.xml
   def show
-    @products = Product.all(:conditions => ["user_id = ? AND user_id = ?", params[:id], 1])
+    @products = Product.all(:conditions => ["user_id = ? OR user_id = ?", params[:id], 1])
 
     respond_to do |format|
       #format.html # show.html.erb
@@ -40,6 +40,7 @@ class ProductsController < ApplicationController
 
   # POST /products
   # POST /products.xml
+=begin  
   def create
     @product = Product.new(params[:product])
 
@@ -54,7 +55,25 @@ class ProductsController < ApplicationController
       end
     end
   end
+=end
 
+def create
+  #@shopping = Shopping.new(params[:shopping])
+  product = { :user_id => params[:user_id], 
+           :title => params[:title]
+            }       
+  @product = Product.new(product)
+  
+   respond_to do |format|
+      if @product.save
+
+        
+        format.xml  { render :xml => @product.to_xml(:only => [ :id, :title]), :status => :created, :location => @product  }
+      else
+        format.xml  { render :xml => @product.errors }
+      end
+    end
+end    
   # PUT /products/1
   # PUT /products/1.xml
   def update
@@ -72,15 +91,4 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.xml
-  def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(products_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

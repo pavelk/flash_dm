@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090401132209) do
+ActiveRecord::Schema.define(:version => 20090406105145) do
 
   create_table "baskets", :force => true do |t|
     t.integer "shopping_id"
@@ -94,6 +94,16 @@ ActiveRecord::Schema.define(:version => 20090401132209) do
     t.datetime "updated_at"
   end
 
+  create_table "puzzles", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "fake_id"
+  end
+
   create_table "ratings", :force => true do |t|
     t.integer "rated_id"
     t.string  "rated_type"
@@ -148,12 +158,12 @@ ActiveRecord::Schema.define(:version => 20090401132209) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "login"
-    t.string   "crypted_password",  :default => "",    :null => false
-    t.string   "password_salt",     :default => "",    :null => false
-    t.string   "persistence_token", :default => "",    :null => false
-    t.string   "perishable_token",  :default => "",    :null => false
-    t.string   "email",             :default => "",    :null => false
-    t.integer  "login_count",       :default => 0,     :null => false
+    t.string   "crypted_password",  :default => "", :null => false
+    t.string   "password_salt",     :default => "", :null => false
+    t.string   "persistence_token", :default => "", :null => false
+    t.string   "perishable_token",  :default => "", :null => false
+    t.string   "email",             :default => "", :null => false
+    t.integer  "login_count",       :default => 0,  :null => false
     t.datetime "last_request_at"
     t.datetime "last_login_at"
     t.datetime "current_login_at"
@@ -164,7 +174,7 @@ ActiveRecord::Schema.define(:version => 20090401132209) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "street"
-    t.boolean  "code",              :default => false, :null => false
+    t.integer  "code",              :default => 0,  :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

@@ -87,15 +87,4 @@ class FriendsController < ApplicationController
     end
   end
 
-  # DELETE /friends/1
-  # DELETE /friends/1.xml
-  def destroy
-    @friend = Friend.find(params[:id])
-    @friend.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(friends_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

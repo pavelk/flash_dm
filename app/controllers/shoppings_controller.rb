@@ -16,8 +16,9 @@ class ShoppingsController < ApplicationController
     @shopping = Shopping.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @shopping }
+      #format.xml  { render :xml => @shopping(:include => {:user => {}, :baskets => {:include => :products}}) }
+      format.xml  { render :xml => @shopping.to_xml(:include => [:user, :baskets, :products]) }
+      #format.xml  { render :xml => @shopping.to_xml :include => {:user => {}, {:baskets=>{:include=>:products}}}  }
     end
   end
 
@@ -40,18 +41,22 @@ class ShoppingsController < ApplicationController
   # POST /shoppings
   # POST /shoppings.xml
   def create
-    #@shopping = Shopping.new(params[:shopping])
     shopping = { :user_id => params[:user_id], 
-             :msg => params[:msg], 
-             :mail => params[:mail]
-              }
-    basket =  params[:mail].to_a         
+                 :msg => params[:msg], 
+                 :mail => params[:mail]
+               }
+    basket =  params[:basket].split(/,/)
+    quantity = params[:bq].split(/,/)
+            
     @shopping = Shopping.new(shopping)
     
      respond_to do |format|
         if @shopping.save
-          @shopping.basket
-          #@shopping.deliver_shopping_list
+          basket.each_with_index do |b, index|
+            ActiveRecord::Base.connection.execute("INSERT INTO baskets (shopping_id, product_id, quantity) VALUES ('#{@shopping.id}', '#{b}', '#{quantity[index]}')")
+          end
+
+          @shopping.deliver_shopping_list
           
           format.xml  { render :xml => @shopping.to_xml, :status => :created, :location => @shopping  }
         else
@@ -90,15 +95,4 @@ class ShoppingsController < ApplicationController
     end
   end
 
-  # DELETE /shoppings/1
-  # DELETE /shoppings/1.xml
-  def destroy
-    @shopping = Shopping.find(params[:id])
-    @shopping.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(shoppings_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

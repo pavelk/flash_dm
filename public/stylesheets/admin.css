@@ -21,6 +21,9 @@ h2 {
   clear: both;
   height: 20px; }
 
+.left {
+  float: left; }
+
 .right {
   float: right; }
 
@@ -48,6 +51,9 @@ table th {
 
 table .even td {
   background-color: #e4e4e4; }
+
+table .approved td {
+  background-color: #ff876b; }
 
 #view {
   width: 900px;

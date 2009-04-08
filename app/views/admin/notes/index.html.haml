@@ -1,15 +1,31 @@
 %h2.page Napište nám
+%h4
+  Celkem
+  = @notes.total_entries
+  mailů
+%form{:action => "/admin/napiste-nam/", :method => "get"}
+  -#%label{:for => "pagingSelector"} Stránkování
+  %select{:id => "pagingSelector", :name => "pagingSelector", :onchange => "submit()"}
+    %option{:value =>"all"} -- Stránkování --
+    %option{:value => "50"} 50
+    %option{:value => "100"} 100
+    %option{:value => "300"} 300
+  po 
+  = params[:pagingSelector]
 %table
   %tr
+    %th 
     %th Jméno
     %th Příjmení
     %th Email
     %th Zpráva
     %th Odesláno
-  - @notes.each do |note|
-    %tr{:class => cycle('odd', 'even')} 
+  - @notes.each_with_index do |note, index|
+    %tr{:class => cycle('odd', 'even')}
+      %td= "#{index + 1}." 
       %td= note.first_name
       %td= note.surname
       %td= note.email
       %td= note.message
-      %td= note.created_at
+      %td= formatted_date(note.created_at)
+= will_paginate @notes, :previous_label => '<< Předchozí', :next_label => 'Další >>'            

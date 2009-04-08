@@ -20,7 +20,7 @@ Rails::Initializer.run do |config|
 
 end
 
-=begin
+
 ActionMailer::Base.smtp_settings = {
    :tls => true,
    :address => "smtp.gmail.com",
@@ -30,4 +30,3 @@ ActionMailer::Base.smtp_settings = {
    :user_name => "pavel.krusek",
    :password => "s4557410"
  }
-=end 

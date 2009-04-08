@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+  #map.resources :puzzles
+
   
   map.resources :news
-  #map.resources :galleries, :collection => { :index_flash => :get  }, :member => { :create_flash => :post, :show_flash => :get, :add_rating => :post }
+  map.resources :galleries, :collection => { :index_flash => :get  }, :member => { :create_flash => :post, :show_flash => :get, :add_rating => :post }
   map.resources :shoppings
   map.resources :products
   map.resources :friends

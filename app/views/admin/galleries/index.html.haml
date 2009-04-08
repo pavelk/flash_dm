@@ -1,17 +1,45 @@
 %h2.page Galerie obrázků
+%h4
+  Celkem
+  = @galleries.total_entries
+  obrázků
+.left  
+  %form{:action => "/admin/galleries/index", :method => "get"}
+    -#%label{:for => "pagingSelector"} Stránkování
+    %select{:id => "pagingSelector", :name => "pagingSelector", :onchange => "submit()"}
+      %option{:value =>"all"} -- Stránkování --
+      %option{:value => "50"} 50
+      %option{:value => "100"} 100
+      %option{:value => "300"} 300
+    po 
+    = params[:pagingSelector]
+- form_tag(admin_galleries_path, :method => 'get') do  
+  %p.right
+    = text_field_tag :search, params[:search]
+    = submit_tag "Hledat", :name => nil
+.clear    
 %table
   %tr
-    %th Uživatel
-    %th Jméno autora
-    %th Město
+    %th
+    %th= link_to('Uživatel', admin_galleries_path(:order => 'user_id',:pagingSelector => params[:pagingSelector], :page => params[:page] ) )
+    %th E-mail    
+    %th= link_to('Jméno autora', admin_galleries_path(:order => 'author_name',:pagingSelector => params[:pagingSelector], :page => params[:page] ) ) 
+    %th= link_to('Město', admin_galleries_path(:order => 'city',:pagingSelector => params[:pagingSelector], :page => params[:page] ) ) 
     %th Obrázek
     %th Úprava
-  - @galleries.each do |gallery|
-    %tr{:class => cycle('odd', 'even')} 
+    %th Odstranit
+    %th= link_to('Schválené', admin_galleries_path(:order => 'approved DESC',:pagingSelector => params[:pagingSelector], :page => params[:page] ) ) 
+  - @galleries.each_with_index do |gallery, index|
+    %tr{:class => {cycle('odd', 'even'), approved(gallery.approved)} }
+      %td= "#{index + 1}." 
       %td= gallery.user.full_name
+      %td= mail_to gallery.user.email, gallery.user.email
       %td= gallery.author_name
       %td= gallery.city
       %td= image_tag gallery.photo.url(:fridge)
       -#%td= link_to 'Upravit', edit_admin_gallery_path(gallery)
       %td= link_to 'Upravit', :controller => 'galleries', :action => 'edit', :id => gallery
-      
+      %td= link_to 'Odstranit', {:controller=>"admin/galleries", :action=>"destroy", :id => gallery}, :confirm => 'Jste si jistí?', :method => :delete
+      %td
+%br 
+= will_paginate @galleries, :previous_label => '<< Předchozí', :next_label => 'Další >>'       

@@ -112,13 +112,5 @@ class GalleriesController < ApplicationController
 
   # DELETE /galleries/1
   # DELETE /galleries/1.xml
-  def destroy
-    @gallery = Gallery.find(params[:id])
-    @gallery.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(galleries_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

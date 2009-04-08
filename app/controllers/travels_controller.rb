@@ -131,14 +131,4 @@ class TravelsController < ApplicationController
       end
     end
   end
-
-  def destroy
-    @travel = Travel.find(params[:id])
-    @travel.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(travels_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

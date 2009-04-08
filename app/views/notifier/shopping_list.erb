@@ -1,3 +1,47 @@
-<%= @msg %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Dobrá máma</title>
+</head>
 
-<%= "#{@user.first_name} #{@user.last_name}"%>
+<body>
+<table width="731" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><img src="http://dobra-mama.cz/images/mail_header.gif" width="731" height="212" /></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#f4f0b9"><table width="600" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+      <tr>
+        <td><font face="Arial" size="+1"><%= @msg %></font>
+          <br><br>
+          <font face="Arial" size="+1" color="red"><%= "#{@user.first_name} #{@user.last_name}"%></font>
+          </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><img src="http://dobra-mama.cz/images/mail_products.gif" width="730" height="57" /></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#f4f0b9"><table width="590" border="0" cellspacing="0" cellpadding="0">
+      <% @basket.each do |b| -%>
+      <tr>
+        <td width="400"><font face="Arial" size="+1"><%= b.product.title  %></font></td>
+        <td width="190"><font face="Arial" size="+1"><%= b.quantity %></font></td>
+      </tr>
+      <% end %>        
+    </table>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p></td>
+  </tr>
+</table>
+</body>
+</html>
+

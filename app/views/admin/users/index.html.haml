@@ -1,21 +1,46 @@
 %h2.page Editace uživatelů
+%h4
+  Celkem
+  = @users.total_entries
+  registrovaných uživatelů
+.left
+  %form{:action => "/admin/users/index", :method => "get"}
+    -#%label{:for => "pagingSelector"} Stránkování
+    %select{:id => "pagingSelector", :name => "pagingSelector", :onchange => "submit()"}
+      %option{:value =>"all"} -- Stránkování --
+      %option{:value => "50"} 50
+      %option{:value => "100"} 100
+      %option{:value => "300"} 300
+    po 
+    = params[:pagingSelector]
+- form_tag(admin_users_path, :method => 'get') do  
+  %p.right
+    = text_field_tag :search, params[:search]
+    = submit_tag "Hledat", :name => nil
+.clear      
 %table
   %tr
-    %th Přihlašovací jméno
-    %th Křestní jméno
-    %th Příjmení
-    %th E-mail
-    %th Město
-    %th Účet vytvořen
-    %th Počet přihlášení
-  - @users.each do |user|
+    %th
+    %th= link_to('Přihlašovací jméno', admin_users_path(:order => 'login',:pagingSelector => params[:pagingSelector], :page => params[:page] ) )
+    %th= link_to('Křestní jméno', admin_users_path(:order => 'first_name',:pagingSelector => params[:pagingSelector], :page => params[:page]) )
+    %th= link_to('Příjmení', admin_users_path(:order => 'last_name', :pagingSelector => params[:pagingSelector], :page => params[:page]) ) 
+    %th= link_to('E-mail', admin_users_path(:order => 'email', :pagingSelector => params[:pagingSelector], :page => params[:page]) ) 
+    %th= link_to('Město', admin_users_path(:order => 'city', :pagingSelector => params[:pagingSelector], :page => params[:page]) ) 
+    %th= link_to('Účet vytvořen', admin_users_path(:order => 'created_at', :pagingSelector => params[:pagingSelector], :page => params[:page]) ) 
+    %th= link_to('Počet přihlášení', admin_users_path(:order => 'login_count DESC', :pagingSelector => params[:pagingSelector], :page => params[:page]) ) 
+    %th Odstranit uživatele
+  - @users.each_with_index do |user, index|
     %tr{:class => cycle('odd', 'even')} 
+      %td= "#{index + 1}."
       %td= user.login
       %td= user.first_name
       %td= user.last_name
       %td= mail_to user.email, user.email
       %td= user.city
-      %td= user.created_at
+      %td= formatted_date(user.created_at)
       %td= user.login_count
+      %td= link_to 'Odstranit', {:controller=>"admin/users", :action=>"destroy", :id => user}, :confirm => 'Jste si jistí?', :method => :delete
+%br
+= will_paginate @users, :previous_label => '<< Předchozí', :next_label => 'Další >>'      
 
           

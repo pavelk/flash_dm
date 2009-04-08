@@ -13,4 +13,14 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(" ") 
   end
   
+  def self.search(search, order)
+    if search
+      find(:all, :conditions => ['login LIKE ? OR city LIKE ? OR email LIKE ? OR street LIKE ? OR first_name LIKE ? OR last_name LIKE ?', 
+                                 "%#{search}%", "%#{search}%", "%#{search}%","%#{search}%", "%#{search}%", "%#{search}%"],
+                                  :order => order)
+    else
+      find(:all, :order => order)
+    end
+  end
+  
 end

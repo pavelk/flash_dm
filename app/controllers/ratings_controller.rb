@@ -73,13 +73,4 @@ class RatingsController < ApplicationController
 
   # DELETE /ratings/1
   # DELETE /ratings/1.xml
-  def destroy
-    @rating = Rating.find(params[:id])
-    @rating.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(ratings_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

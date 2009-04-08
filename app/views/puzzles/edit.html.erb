@@ -1,0 +1,12 @@
+<h1>Editing puzzle</h1>
+
+<% form_for(@puzzle) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @puzzle %> |
+<%= link_to 'Back', puzzles_path %>

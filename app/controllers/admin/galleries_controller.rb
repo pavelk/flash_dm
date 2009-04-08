@@ -4,7 +4,10 @@ class Admin::GalleriesController < ApplicationController
   layout 'admin'
   
   def index
-    @galleries = Gallery.all
+    if(params[:pagingSelector] == nil)
+      params[:pagingSelector] = 50
+    end
+    @galleries = Gallery.search(params[:search], params[:order]).paginate :page => params[:page], :per_page => params[:pagingSelector]
 
     respond_to do |format|
       format.html
@@ -28,6 +31,16 @@ class Admin::GalleriesController < ApplicationController
         format.html { render :action => "edit" }
         format.xml  { render :xml => @gallery.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+  
+  def destroy
+    @gallery = Gallery.find(params[:id])
+    @gallery.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(admin_galleries_path) }
+      format.xml  { head :ok }
     end
   end
   

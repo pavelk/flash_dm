@@ -16,6 +16,14 @@ class Gallery < ActiveRecord::Base
     self.class.increment_counter :hits, id
   end
   
+  def self.search(search, order)
+    if search
+      find(:all, :conditions => ['author_name LIKE ? OR city LIKE ? OR author_age LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%"], :order => order)
+    else
+      find(:all, :order => order)
+    end
+  end
+  
   private
 
     def randomize_file_name

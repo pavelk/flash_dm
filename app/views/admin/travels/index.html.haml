@@ -1,14 +1,37 @@
 %h2.page Výlety
+%h4
+  Celkem
+  = @travels.total_entries
+  výletů
+%form{:action => "/admin/travels/index", :method => "get"}
+  -#%label{:for => "pagingSelector"} Stránkování
+  %select{:id => "pagingSelector", :name => "pagingSelector", :onchange => "submit()"}
+    %option{:value =>"all"} -- Stránkování --
+    %option{:value => "50"} 50
+    %option{:value => "100"} 100
+    %option{:value => "300"} 300
+  po 
+  = params[:pagingSelector]
 %table
   %tr
-    %th Uživatel
-    %th Popis
+    %th
+    %th= link_to('Uživatel', admin_travels_path(:order => 'user_id',:pagingSelector => params[:pagingSelector], :page => params[:page] ) ) 
+    %th E-mail
+    %th= link_to('Popis', admin_travels_path(:order => 'description',:pagingSelector => params[:pagingSelector], :page => params[:page] ) )
     %th Upravit
     %th Obrázky
-  - @travels.each do |travel|
-    %tr
+    %th Odstranit výlet
+    %th= link_to('Schválené', admin_travels_path(:order => 'approved DESC',:pagingSelector => params[:pagingSelector], :page => params[:page] ) )
+  - @travels.each_with_index do |travel, index|
+    %tr{:class => {cycle('odd', 'even'), approved(travel.approved)} }
+      %td= "#{index + 1}."
       %td= travel.user.full_name
+      %td= mail_to travel.user.email, travel.user.email
       -#%td= link_to travel.title, edit_admin_travel_path(travel)
       %td= travel.title
       %td= link_to 'Upravit', :controller => 'travels', :action => 'edit', :id => travel
       %td= link_to 'Obrázky', :controller => 'travels', :action => 'photos', :id => travel
+      %td= link_to 'Odstranit', {:controller=>"admin/travels", :action=>"destroy", :id => travel}, :confirm => 'Jste si jistí?', :method => :delete
+      %td
+%br
+= will_paginate @travels, :previous_label => '<< Předchozí', :next_label => 'Další >>'      

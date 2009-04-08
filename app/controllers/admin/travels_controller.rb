@@ -4,7 +4,10 @@ class Admin::TravelsController < ApplicationController
   layout 'admin'
   
   def index
-    @travels = Travel.find(:all)
+    if(params[:pagingSelector] == nil)
+      params[:pagingSelector] = 50
+    end
+    @travels = Travel.all(:order => params[:order]).paginate :page => params[:page], :per_page => params[:pagingSelector]
 
     respond_to do |format|
       format.html 
@@ -46,6 +49,16 @@ class Admin::TravelsController < ApplicationController
   def photos
     @travel = Travel.find(params[:id])
     @photos = @travel.photos
+  end
+  
+  def destroy
+    @travel = Travel.find(params[:id])
+    @travel.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(admin_travels_path) }
+      format.xml  { head :ok }
+    end
   end
 
 end

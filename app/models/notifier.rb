@@ -34,8 +34,10 @@ class Notifier < ActionMailer::Base
     from "Dobra mama <noreply@dobra-mama.cz>"
     recipients shopping.mail
     sent_on Time.now
+    @content_type = 'text/html' 
     body[:msg] = shopping.msg
     body[:user] = shopping.user
+    body[:basket] = shopping.baskets
   end    
 
 end
