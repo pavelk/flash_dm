@@ -35,6 +35,7 @@ class Notifier < ActionMailer::Base
     recipients shopping.mail
     sent_on Time.now
     @content_type = 'text/html' 
+    body[:id] = shopping.id
     body[:msg] = shopping.msg
     body[:user] = shopping.user
     body[:basket] = shopping.baskets

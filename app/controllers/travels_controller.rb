@@ -1,10 +1,10 @@
 class TravelsController < ApplicationController
-
+   layout "application", :except => [:index] 
   def index
     @travels = Travel.find(:all)
-
+    
     respond_to do |format|
-      format.html # index.html.erb
+      format.html  # index.html.erb
       format.xml  { render :xml => @travels }
     end
   end
