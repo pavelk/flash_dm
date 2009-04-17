@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   #map.resources :puzzles
 
   
-  map.resources :news
+  map.resources :news, :collection => { :index_flash => :get  }
   map.resources :galleries, :collection => { :index_flash => :get  }, :member => { :create_flash => :post, :show_flash => :get, :add_rating => :post }
   map.resources :shoppings
   map.resources :products
@@ -30,6 +30,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :friends
     admin.resources :notes, :as => 'napiste-nam'
     admin.resources :galleries
+    admin.resources :news
   end
   
   map.connect ':controller/:action/:id.:format'

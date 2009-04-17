@@ -42,7 +42,9 @@ table {
   width: 100%; }
 
 table td {
-  padding: 5px; }
+  padding: 5px;
+  vertical-align: top;
+}
 
 table th {
   padding: 5px;

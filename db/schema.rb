@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090406105145) do
+ActiveRecord::Schema.define(:version => 20090416123800) do
 
   create_table "baskets", :force => true do |t|
     t.integer "shopping_id"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20090406105145) do
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "gallery_link"
   end
 
   create_table "galleries", :force => true do |t|
@@ -59,9 +60,13 @@ ActiveRecord::Schema.define(:version => 20090406105145) do
     t.string   "title"
     t.text     "perex"
     t.text     "description"
-    t.integer  "hits",        :default => 0, :null => false
+    t.integer  "hits",               :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "notes", :force => true do |t|

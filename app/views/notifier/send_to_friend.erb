@@ -1,3 +1,7 @@
 <%= @message %>
 
 <%= @sender_name %>
+
+<% if @link.size > 0  %>
+<%= "http://192.168.18.198:3000/?gallery=#{@link.gsub(/[^0-9]/i, "#").gsub(/#/, "")}" %>
+<% end  %>

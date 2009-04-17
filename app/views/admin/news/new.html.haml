@@ -1,0 +1,6 @@
+%h2.page 
+  Přidat novinku
+= error_messages_for :new 
+- form_for @new, :url => {:action => "create"}, :html => { :multipart => true } do |f|
+  = render :partial => "form", :locals => { :f => f }
+  %p= submit_tag "Přidat novinku"

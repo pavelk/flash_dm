@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   
   def most_rated_gallery
-    @gallery = Gallery.first(:order => 'rating_avg DESC')
+    @gallery = Gallery.first(:order => 'rating_total DESC')
     
     respond_to do |format|
         format.xml  { render :xml => @gallery.to_xml(:only => [ :id, :photo_file_name ]) }
@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
   
   def most_rated_trip
-    @trip = Travel.first(:order => 'rating_avg DESC')
+    @trip = Travel.first(:order => 'rating_total DESC')
     @photo = @trip.photos[0];
     
     respond_to do |format|

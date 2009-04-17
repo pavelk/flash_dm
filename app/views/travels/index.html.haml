@@ -11,16 +11,17 @@
     = stylesheet_link_tag 'application'
     = javascript_include_tag 'swfobject.js'
     :javascript
-      var flashvars = {};
-      flashvars.shopping = "#{params[:shopping]}";
-      var params = {};
-      params.menu = "false";
-      params.scale = "noscale";
-      params.wmode = "opaque";
-      params.allowscriptaccess = "always";
-      var attributes = {};
+      //var flashvars = {};
+      //flashvars.shopping = "#{params[:shopping]}";
+      //var params = {};
+      //params.menu = "false";
+      //params.scale = "noscale";
+      //params.wmode = "opaque";
+      //params.allowscriptaccess = "always";
+      //var attributes = {};
       //swfobject.embedSWF("main.swf", "flashDiv", "700", "400", "9.0.24", "/images/expressInstall.swf", flashvars, params, attributes);
-      swfobject.embedSWF("/DobraMama.swf", "flashDiv", "100%", "768", "9.0.24", "/images/expressInstall.swf", flashvars, params, attributes);
+      //swfobject.embedSWF("/DobraMama.swf", "flashDiv", "100%", "768", "9.0.24", "/images/expressInstall.swf", flashvars, params, attributes);
+      window.onload = function() { create("768"); }
     :javascript
       function openWindow(url, name, width, height, x, y) 
       {
@@ -28,10 +29,28 @@
         var popup = window.open(url, name, params);
         return popup != null && typeof(popup) != "undefined";
       }
-  %body
-    #flashDiv
-      %a{ :href => 'http://www.adobe.com/go/getflashplayer' }
-        %img{ :src => 'http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif', :alt => 'Get Adobe Flash player' }
+    :javascript
+      function remove() 
+      {
+        swfobject.removeSWF("flashDiv");
+        create("600");
+      }
+    :javascript
+      function create(h) 
+      {
+        var d = document.createElement("div");
+        d.setAttribute("id", "flashDiv");
+        document.getElementById("helper").appendChild(d);
+        var flashvars = {};
+        flashvars.shopping = "#{params[:shopping]}";
+        var att = { data:"/DobraMama.swf", width:"100%", height:h };
+        var par = { menu:"false" };
+        var id = "flashDiv";
+        swfobject.createSWF(att, par, id);
+        document.getElementById("main").style.backgroundImage = "url('bg_6000.png')";
+      }      
+  %body#main
+    #helper
     -#:javascript
       -#var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
       -#document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

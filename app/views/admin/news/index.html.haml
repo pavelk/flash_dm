@@ -1,0 +1,47 @@
+%h2.page Novinky
+%h4
+  Celkem
+  = @news.total_entries
+  novinek
+.left  
+  %form{:action => "/admin/news/index", :method => "get"}
+    %select{:id => "pagingSelector", :name => "pagingSelector", :onchange => "submit()"}
+      %option{:value =>"all"} -- Stránkování --
+      %option{:value => "50"} 50
+      %option{:value => "100"} 100
+      %option{:value => "300"} 300
+    po 
+    = params[:pagingSelector]
+-#- form_tag(admin_news_index_path, :method => 'get') do  
+-#  %p.right
+-#    = text_field_tag :search, params[:search]
+-#    = submit_tag "Hledat", :name => nil
+.clear
+= link_to 'Přidat novinku', new_admin_news_path
+%br
+%br
+%table
+  %tr
+    %th
+    %th Titulek
+    %th Text   
+    %th Návštěvnost
+    %th Vytvořeno
+    %th Upraveno
+    %th Obrázek
+    %th Editace
+    =#%th Odstranit 
+  - @news.each_with_index do |new, index|
+    %tr{:class => cycle('odd', 'even') }
+      %td= "#{index + 1}." 
+      %td= new.title
+      %td= truncate(h(new.perex), :length => 180, :omission => '&hellip;')
+      %td= new.hits
+      %td= formatted_date(new.created_at)
+      %td= formatted_date(new.updated_at)
+      %td= image_tag new.photo.url(:thumb)
+      %td= link_to 'Upravit', :controller => 'news', :action => 'edit', :id => new
+      -#%td= link_to 'Odstranit', {:controller=>"admin/galleries", :action=>"destroy", :id => gallery}, :confirm => 'Jste si jistí?', :method => :delete
+      %td
+%br 
+= will_paginate @news, :previous_label => '<< Předchozí', :next_label => 'Další >>'

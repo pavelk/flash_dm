@@ -43,7 +43,9 @@ class FriendsController < ApplicationController
     friend = { :recipient_mail => params[:recipient_mail], 
              :sender_mail => params[:sender_mail], 
              :sender_name => params[:sender_name], 
-             :message => params[:message] }
+             :message => params[:message],
+             :gallery_link => params[:link]
+              }
     @friend = Friend.new(friend)
 
     respond_to do |format|

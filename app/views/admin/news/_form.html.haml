@@ -1,0 +1,12 @@
+%p  
+  = f.label :title, '<strong>Titulek:</strong>'
+  %br
+  = f.text_field :title
+%p  
+  = f.label :perex, '<strong>Text:</strong>'
+  %br
+  = f.text_area :perex, :rows => 5, :cols => 80
+%p
+  = f.label :photo, 'Obrázek - jpg, png'
+  %br
+  = f.file_field :photo

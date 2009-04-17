@@ -20,6 +20,7 @@ class Notifier < ActionMailer::Base
     sent_on Time.now
     body[:sender_name] = friend.sender_name
     body[:message] = friend.message
+    body[:link] = friend.gallery_link
   end
   
   def registration_mail(user)
