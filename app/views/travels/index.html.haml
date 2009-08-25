@@ -41,10 +41,8 @@
         var d = document.createElement("div");
         d.setAttribute("id", "flashDiv");
         document.getElementById("helper").appendChild(d);
-        var flashvars = {};
-        flashvars.shopping = "#{params[:shopping]}";
         var att = { data:"/DobraMama.swf", width:"100%", height:h };
-        var par = { menu:"false" };
+        var par = { menu:"false", flashvars:"shopping=#{params[:shopping]}&gallery=#{params[:gallery]}" };
         var id = "flashDiv";
         swfobject.createSWF(att, par, id);
         document.getElementById("main").style.backgroundImage = "url('bg_6000.png')";

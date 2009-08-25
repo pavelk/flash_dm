@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090416123800) do
+ActiveRecord::Schema.define(:version => 20090824091447) do
 
   create_table "baskets", :force => true do |t|
     t.integer "shopping_id"
@@ -117,6 +117,11 @@ ActiveRecord::Schema.define(:version => 20090416123800) do
 
   add_index "ratings", ["rated_type", "rated_id"], :name => "index_ratings_on_rated_type_and_rated_id"
 
+  create_table "rounds", :force => true do |t|
+    t.datetime "date_from"
+    t.datetime "date_till"
+  end
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :default => "", :null => false
     t.text     "data"
@@ -135,6 +140,17 @@ ActiveRecord::Schema.define(:version => 20090416123800) do
     t.text     "msg"
     t.string   "mail"
   end
+
+  create_table "slogans", :force => true do |t|
+    t.integer "round_id"
+    t.string  "name"
+    t.string  "username"
+    t.string  "address"
+    t.string  "city"
+    t.integer "votes_count", :default => 0
+  end
+
+  add_index "slogans", ["round_id"], :name => "index_slogans_on_round_id"
 
   create_table "travels", :force => true do |t|
     t.integer  "user_id"
@@ -187,5 +203,16 @@ ActiveRecord::Schema.define(:version => 20090416123800) do
   add_index "users", ["login"], :name => "index_users_on_login"
   add_index "users", ["perishable_token"], :name => "index_users_on_perishable_token"
   add_index "users", ["persistence_token"], :name => "index_users_on_persistence_token"
+
+  create_table "votes", :force => true do |t|
+    t.integer  "slogan_id"
+    t.string   "vote_ip"
+    t.datetime "created_at"
+    t.integer  "round_id"
+  end
+
+  add_index "votes", ["created_at"], :name => "index_votes_on_created_at"
+  add_index "votes", ["slogan_id"], :name => "index_votes_on_slogan_id"
+  add_index "votes", ["vote_ip"], :name => "index_votes_on_vote_ip"
 
 end

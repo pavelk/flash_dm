@@ -35,13 +35,17 @@
         create("600");
       }
     :javascript
+      function changeback() 
+      {
+        swfobject.removeSWF("flashDiv");
+        create("768");
+      }      
+    :javascript
       function create(h) 
       {
         var d = document.createElement("div");
         d.setAttribute("id", "flashDiv");
         document.getElementById("helper").appendChild(d);
-        //var flashvars = {};
-        //flashvars.shopping = "#{params[:shopping]}";
         var att = { data:"/DobraMama_01.swf", width:"100%", height:h };
         var par = { menu:"false", flashvars:"shopping=#{params[:shopping]}&gallery=#{params[:gallery]}" };
         var id = "flashDiv";

@@ -10,7 +10,7 @@ class Gallery < ActiveRecord::Base
   validates_attachment_size :photo, :less_than => 10.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif', 'application/octet-stream']
  
-  before_create :randomize_file_name
+  #before_create :randomize_file_name
  
   def hit!
     self.class.increment_counter :hits, id
