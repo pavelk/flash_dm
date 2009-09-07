@@ -1,0 +1,12 @@
+<h1>Editing unsubscribe</h1>
+
+<% form_for(@unsubscribe) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @unsubscribe %> |
+<%= link_to 'Back', unsubscribes_path %>

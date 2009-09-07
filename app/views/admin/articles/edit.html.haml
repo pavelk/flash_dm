@@ -1,0 +1,7 @@
+%h2.page 
+  Úprava položky novinky -  
+  = @article.title
+= error_messages_for :article 
+- form_for @article, :url => {:action => "update", :id => @article}, :html => { :multipart => true } do |f|
+  = render :partial => "form", :locals => { :f => f }
+  %p= submit_tag "Upravit"

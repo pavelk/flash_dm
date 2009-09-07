@@ -1,0 +1,12 @@
+#window
+  %h2 Stránka pro odhlášení
+  #desc 
+    Pro odhlášení z našeho mailing listu zadejte svou e-mailovou adresu a klikněte na tlačítko Odeslat. 
+    %br 
+    Po odhlášení nebudete dostávat e-mailové nabídky včetně informačních letáků a náhledů nových produktů nebo informace o nových soutěžích.
+  #form
+    %form{ :action => 'unsubscribes/delete', :method => 'post'  }
+      #desc_form E-mailová adresa, kterou chcete odhlásit:
+      %input{ :id => 'email', :name => 'email', :type => 'text', :size => '50' }
+      %input{ :id => 'delete_submit', :type => 'submit', :value => 'odeslat' }
+  #doors

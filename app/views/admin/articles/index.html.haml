@@ -1,10 +1,10 @@
 %h2.page Novinky
 %h4
   Celkem
-  = @news.total_entries
+  = @articles.total_entries
   novinek
 .left  
-  %form{:action => "/admin/news/index", :method => "get"}
+  %form{:action => "/admin/articles/index", :method => "get"}
     %select{:id => "pagingSelector", :name => "pagingSelector", :onchange => "submit()"}
       %option{:value =>"all"} -- Stránkování --
       %option{:value => "50"} 50
@@ -17,7 +17,7 @@
 -#    = text_field_tag :search, params[:search]
 -#    = submit_tag "Hledat", :name => nil
 .clear
-= link_to 'Přidat novinku', new_admin_news_path
+= link_to 'Přidat novinku', new_admin_article_path
 %br
 %br
 %table
@@ -31,7 +31,7 @@
     %th Obrázek
     %th Editace
     =#%th Odstranit 
-  - @news.each_with_index do |n, index|
+  - @articles.each_with_index do |n, index|
     %tr{:class => cycle('odd', 'even') }
       %td= "#{index + 1}." 
       %td= n.title
@@ -45,4 +45,4 @@
       -#%td= link_to 'Odstranit', {:controller=>"admin/galleries", :action=>"destroy", :id => gallery}, :confirm => 'Jste si jistí?', :method => :delete
       %td
 %br 
-= will_paginate @news, :previous_label => '<< Předchozí', :next_label => 'Další >>'
+= will_paginate @articles, :previous_label => '<< Předchozí', :next_label => 'Další >>'

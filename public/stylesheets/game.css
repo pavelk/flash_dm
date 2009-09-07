@@ -1,0 +1,77 @@
+body#main {
+  margin: 0;
+  padding: 0;
+  background-color: #1a9dd8;
+  background-image: url(../images/dm_game_bg.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  font-family: Arial;
+   }
+   
+#wraper {
+  width: 660px;
+  height: 362px;
+  margin: 195px auto 0;
+}
+
+#flashDiv {
+  height: 362px;
+}
+
+#window {
+  width: 829px;
+  height: 494px;
+  margin: 169px auto 0;
+  background-image: url(../images/okno.jpg);
+  background-repeat: no-repeat;
+  background-position: 6px 0;
+  position: relative;
+}
+
+h2 {
+  font-size: 18px;
+  color: #1a9dd8;
+  position: absolute;
+  top: 20px;
+  left: 310px;
+}
+
+h3 {
+ font-size: 20px;
+ color: #1a9dd8;
+ position: absolute;
+ top: 190px;
+ left: 280px; 
+}
+
+#desc {
+  font-size: 12px;
+  color: #1a9dd8;
+  position: absolute;
+  top: 80px;
+  left: 100px;
+  width: 600px;  
+}
+
+#desc_form{
+  color: #133c8a;
+  font-size: 12px;
+}
+
+#form {
+  position: absolute;
+  top: 200px;
+  left: 100px;
+  width: 300px;
+}
+
+#doors {
+  width: 133px;
+  height: 229px;
+  background-image: url(../images/dvere.jpg);
+  background-repeat: no-repeat;
+  background-position: 6px 0;
+  position: absolute;
+  top: 167px;
+  left: 554px;
+}

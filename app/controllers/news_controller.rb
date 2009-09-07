@@ -5,7 +5,7 @@ class NewsController < ApplicationController
 
       respond_to do |format|
         #format.html # index.html.erb
-        format.xml  { render :xml => @news.to_xml(:only => [ :title, :perex, :photo_file_name]) }
+        format.xml  { render :xml => @news.to_xml(:only => [ :id, :title, :perex, :photo_file_name]) }
       end
   end
 end

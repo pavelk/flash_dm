@@ -1,10 +1,11 @@
 class Admin::NewsController < ApplicationController
   
-  before_filter :check_authentication
+  #before_filter :check_authentication
   
   layout 'admin'
   
   def index
+    #debugger
     if(params[:pagingSelector] == nil)
       params[:pagingSelector] = 50
     end
@@ -16,8 +17,6 @@ class Admin::NewsController < ApplicationController
     end
   end
 
-  # GET /news/1
-  # GET /news/1.xml
   def show
     @new = New.find(params[:id])
 
@@ -27,8 +26,6 @@ class Admin::NewsController < ApplicationController
     end
   end
 
-  # GET /news/new
-  # GET /news/new.xml
   def new
     @new = New.new
 
@@ -38,13 +35,10 @@ class Admin::NewsController < ApplicationController
     end
   end
 
-  # GET /news/1/edit
   def edit
     @new = New.find(params[:id])
   end
 
-  # POST /news
-  # POST /news.xml
   def create
     @new = New.new(params[:new])
 
@@ -68,9 +62,9 @@ class Admin::NewsController < ApplicationController
                :description => params[:description] }
     @new = New.new(news)
 
-    if @travel.save
+    if @new.save
       @photo = Photo.new(params[:photo])
-      @travel.photos << @photo
+      @new.photos << @photo
       render :text => @travel.to_xml, :status => 200
     end
     #render

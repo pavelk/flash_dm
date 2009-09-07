@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :articles, :collection => { :index_flash => :get  }
+
+  map.resources :unsubscribes
+
   map.resources :rounds
 
   map.resources :votes
@@ -6,7 +10,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :slogans
 
   #map.resources :puzzles
-
+  
+  map.with_options :controller => 'info' do |info|
+    info.game 'hra', :action => 'game'     
+  end
+  
   
   map.resources :news, :collection => { :index_flash => :get  }
   map.resources :galleries, :collection => { :index_flash => :get  }, :member => { :create_flash => :post, :show_flash => :get, :add_rating => :post }
@@ -28,6 +36,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'get_user', :controller => 'user_sessions', :action => 'get_current_user'  
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  map.connect 'mailing-odhlaseni', :controller => 'unsubscribes', :action => 'unsubscribe'
+  map.connect 'mailing-delete', :controller => 'unsubscribes', :action => 'delete'
   
   map.namespace :admin do |admin|
     admin.root :controller => "user_sessions", :action => "new"
@@ -39,6 +49,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :notes, :as => 'napiste-nam'
     admin.resources :galleries
     admin.resources :news
+    admin.resources :articles
   end
   
   map.connect ':controller/:action/:id.:format'
