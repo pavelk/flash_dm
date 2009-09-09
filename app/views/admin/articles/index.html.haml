@@ -26,7 +26,7 @@
     %th Titulek
     %th Text   
     %th Návštěvnost
-    %th Vytvořeno
+    %th Publikace
     %th Upraveno
     %th Obrázek
     %th Editace
@@ -37,11 +37,11 @@
       %td= n.title
       %td= truncate(h(n.perex), :length => 180, :omission => '&hellip;')
       %td= n.hits
-      %td= formatted_date(n.created_at)
+      %td= formatted_date(n.publish_date)
       %td= formatted_date(n.updated_at)
       %td= image_tag n.data.url(:medium)
       -#%td= image_tag n.photo_file_name
-      %td= link_to 'Upravit', :controller => 'news', :action => 'edit', :id => n
+      %td= link_to 'Upravit', :controller => 'articles', :action => 'edit', :id => n
       -#%td= link_to 'Odstranit', {:controller=>"admin/galleries", :action=>"destroy", :id => gallery}, :confirm => 'Jste si jistí?', :method => :delete
       %td
 %br 

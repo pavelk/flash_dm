@@ -1,7 +1,7 @@
 class NewsController < ApplicationController
 
   def index_flash
-     @news = New.all
+     @news = New.all(:order => 'created_at ASC')
 
       respond_to do |format|
         #format.html # index.html.erb

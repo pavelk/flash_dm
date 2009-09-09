@@ -9,7 +9,7 @@ class Admin::ArticlesController < ApplicationController
     if(params[:pagingSelector] == nil)
       params[:pagingSelector] = 50
     end
-    @articles = Article.all.paginate :page => params[:page], :per_page => params[:pagingSelector]
+    @articles = Article.all(:order => 'created_at DESC').paginate :page => params[:page], :per_page => params[:pagingSelector]
 
     respond_to do |format|
       format.html
@@ -62,9 +62,9 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     respond_to do |format|
-      if @article.update_attributes(params[:Article])
+      if @article.update_attributes(params[:article])
         flash[:notice] = 'Article was successfully updated.'
-        format.html { redirect_to(admin_articles_index_path) }
+        format.html { redirect_to(admin_articles_path) }
         #format.html { redirect_to(@article) }
         format.xml  { head :ok }
       else
