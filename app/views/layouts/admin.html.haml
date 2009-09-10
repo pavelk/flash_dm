@@ -12,6 +12,7 @@
   %body
     #view
       %h1 Dobrá máma | Administrace
+      = request.env['HTTP_X_FORWARDED_FOR']
       - if current_user
         = link_to "Odhlásit se", admin_logout_path, :class => 'right'
       - flash.each do |key, msg|
