@@ -9,7 +9,7 @@ class SlogansController < ApplicationController
     respond_to do |format|
       #format.xml  { render :xml => @slogans.to_xml(:include => [:votes], :skip_instruct => true, 
       #              :only => [ :id, :round_id, :name, :username, :address ]) }
-      format.xml  { render :xml => @slogans.to_xml( :include => [:round], :skip_instruct => true, 
+      format.xml  { render :xml => @slogans.to_xml( :include => [:round], :methods => [ :votes_total ], :skip_instruct => true, 
                     :only => [ :id, :round_id, :name, :username, :city, :votes_count, :date_from, :date_till ]) }              
     end
   end
