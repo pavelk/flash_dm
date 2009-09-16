@@ -11,7 +11,6 @@ class VotesController < ApplicationController
                :vote_ip => request.env['HTTP_X_FORWARDED_FOR']  
             }
       @vote = Vote.new(vote)
-      #update slogans set votes_count = 0 where id < 10000
       if @vote.save
         render :text => @vote.to_xml, :status => 200
       end
